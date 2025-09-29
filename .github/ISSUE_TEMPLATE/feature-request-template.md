@@ -1,7 +1,7 @@
 ---
 name: Feature request template
 about: Propose a new functionality or improvement
-title: "[Feat]"
+title: "[scope] type : subject"
 labels: feat
 assignees: ''
 
