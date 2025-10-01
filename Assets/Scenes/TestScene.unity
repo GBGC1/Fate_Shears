@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 1712119490}
   - component: {fileID: 1712119488}
   - component: {fileID: 1712119487}
+  - component: {fileID: 1712119492}
   - component: {fileID: 1712119491}
   m_Layer: 0
   m_Name: Player
@@ -640,6 +641,20 @@ MonoBehaviour:
   groundCheckDistance: 0.1
   groundCheckSize: {x: 0.8, y: 0.1}
   groundCheckOffset: {x: 0, y: -0.6}
+  dashSpeed: 10
+  dashDuration: 0.2
+--- !u!114 &1712119492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712119481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695f9992592546146adc56e26e4cbe63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

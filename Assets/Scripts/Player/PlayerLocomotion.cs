@@ -9,6 +9,7 @@ public class PlayerLocomotion : MonoBehaviour
 {
     private PlayerInput playerInput;    // PlayerInput 스크립트 참조
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
 
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 4f;
@@ -30,14 +31,16 @@ public class PlayerLocomotion : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>(); 
 
+        // 이벤트 구독
         playerInput.OnJumpEvent += HandleJump;
         playerInput.OnDashEvent += HandleDash;
     }
 
     private void OnDestroy()
     {
-        // 💡 스크립트 파괴 시 이벤트 구독 해지 (메모리 누수 방지)
+        // 이벤트 구독 해지
         if (playerInput != null)
         {
             playerInput.OnJumpEvent -= HandleJump;
@@ -59,6 +62,17 @@ public class PlayerLocomotion : MonoBehaviour
     {
         Vector2 velocity = playerInput.MoveVector * moveSpeed;
         rb.linearVelocity = new Vector2(velocity.x, rb.linearVelocity.y);
+
+        // 왼쪽 이동 시 flipX를 통해 좌우 반전
+        if (playerInput.MoveVector.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        // 오른쪽 이동 시 원본 방향 유지
+        else if (playerInput.MoveVector.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     // 점프 물리 제어
@@ -116,14 +130,18 @@ public class PlayerLocomotion : MonoBehaviour
         float direction;
         if (playerInput.MoveVector.x != 0)
         {
-            // 입력이 있을 경우, 입력 방향의 부호(-1 또는 1) 사용
+            // 입력이 있을 경우, 입력 방향으로 설정
             direction = Mathf.Sign(playerInput.MoveVector.x);
         }
         else
         {
-            // 입력이 없을 경우, 플레이어가 현재 바라보는 방향의 부호(-1 또는 1) 사용
-            direction = Mathf.Sign(transform.localScale.x); 
+            // 입력이 없을 경우, 플레이어가 현재 바라보는 방향으로 설정
+            // flipX가 true면 왼쪽, false면 오른쪽
+            direction = spriteRenderer.flipX ? -1f : 1f;
         }
+
+        // 방향에 따라 좌우 방향 설정
+        spriteRenderer.flipX = (direction < 0);
 
         // 기존 속도 저장
         float originalVelocity = rb.linearVelocity.x;
