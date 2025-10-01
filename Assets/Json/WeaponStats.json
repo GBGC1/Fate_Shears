@@ -1,0 +1,20 @@
+﻿[
+  {
+    "Type": "Shears",
+    "Damage": 10,
+    "AttackSpeed": 0.7,
+    "Range": 10
+  },
+  {
+    "Type": "TwoSword",
+    "Damage": 4,
+    "AttackSpeed": 0.4,
+    "Range": 6
+  },
+  {
+    "Type": "GreatSword",
+    "Damage": 20,
+    "AttackSpeed": 1,
+    "Range": 10
+  }
+]
