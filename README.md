@@ -1,2 +1,0 @@
-# FateShears
-Metroidvania Game

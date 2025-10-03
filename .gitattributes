@@ -1,4 +1,0 @@
-# UTF-8 Processing / Language Settings
-*.cs text working-tree-encoding=UTF-8
-*.cs linguist-language=C#
-*.shader text working-tree-encoding=UTF-8
