@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Weapon;
-using Constant = Script.Constant;
 
 public class AttackHandler : MonoBehaviour
 {
@@ -39,6 +38,8 @@ public class AttackHandler : MonoBehaviour
         if (!animator.GetBool("Atk"))
         {
             animator.SetBool("Atk", true);
+            animator.SetInteger("WeaponForm", (int)currentForm);
+            attackKey.Attack.ChangeForm.Disable();
         }
         else
         {
@@ -54,5 +55,6 @@ public class AttackHandler : MonoBehaviour
     private void EndMotion()
     {
         animator.SetBool("Atk", false);
+        attackKey.Attack.ChangeForm.Enable();
     }
 }
