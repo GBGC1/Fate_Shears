@@ -7,12 +7,14 @@ using System.Collections;
 /// </summary>
 public class PlayerLocomotion : MonoBehaviour
 {
-    private PlayerInput playerInput;    // PlayerInput 스크립트 참조
+    private PlayerInput playerInput;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
+    private PlayerDamageStateManager damageStateManager;
 
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 4f;
+    public float MoveSpeedMultiplier { get; set; } = 1f;    // 이동 속도 배율
 
     [Header("Jump Settings")]
     [SerializeField] private float jumpForce = 7f;
@@ -34,6 +36,7 @@ public class PlayerLocomotion : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>(); 
+        damageStateManager = GetComponent<PlayerDamageStateManager>();
 
         // 이벤트 구독
         playerInput.OnJumpEvent += HandleJump;
@@ -56,11 +59,18 @@ public class PlayerLocomotion : MonoBehaviour
         if (IsGrounded())
         {
             // 점프 직후에는 점프 카운트 초기화 x (점프 오작동 방지)
-            if (rb.linearVelocity.y <= 0) 
+            if (rb.linearVelocity.y <= 0)
             {
                 currentJumpCount = 0;
             }
         }
+        // 이동 제한 상태인 경우 (일반/피격 상태 제외) 이동 처리 무시
+        if (damageStateManager.CurrentDamageState != DamageState.Normal && 
+        damageStateManager.CurrentDamageState != DamageState.Hit)
+        {
+            return; 
+        }
+
         // 대시 중이 아닐 때만 일반 이동 처리
         if (!isDashing)
         {
@@ -71,7 +81,7 @@ public class PlayerLocomotion : MonoBehaviour
     // 좌우 이동 물리 제어
     private void HandleMovement()
     {
-        Vector2 velocity = playerInput.MoveVector * moveSpeed;
+        Vector2 velocity = playerInput.MoveVector * moveSpeed * MoveSpeedMultiplier;
         rb.linearVelocity = new Vector2(velocity.x, rb.linearVelocity.y);
 
         // 왼쪽 이동 시 flipX를 통해 좌우 반전
