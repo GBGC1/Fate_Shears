@@ -1,0 +1,128 @@
+# 작성자 : Ahyun
+# 최종 수정일 : 2025-10-12
+# 내용 : 플레이어 피해 처리 및 적 공격 연동 가이드
+===================================
+1. 일반 데미지 및 피격 처리
+=> StatManager를 통해 데미지를 주면, StatManager의 OnHurt 이벤트가 발동되어
+     PlayerDamageStateManager가 ExecuteHitState 코루틴을 자동 실행합니다.
+[예시]
+void AttackPlayer(StatManager playerStat, float attackPower)
+{
+    playerStat.TakeDamage(attackPower);
+}
+
+2. 스턴 상태 적용
+=> 적의 공격이 스턴 효과를 가지고 있을 때 사용
+[예시]
+void ApplyStun(PlayerDamageStateManager playerDamageManager, float stunTime)
+{
+    playerStat.TakeDamage(10f); 	// 데미지 처리
+    playerDamageManager.StartStun(stunTime);	// 플레이어에게 스턴 적용
+}
+
+3. 넉백 상태 적용
+=> 적의 공격이 플레이어를 밀어낼 때 사용
+[예시]
+void ApplyKnockback(PlayerDamageStateManager playerDamageManager, float knockbackForce)
+{
+    playerStat.TakeDamage(10f); 	// 데미지 처리
+    playerDamageManager.StartKnockback(knockbackForce);   // 넉백 적용
+}
+
+===================================
+[플레이어 피해 처리 테스트 코드]
+=> 하단의 테스트 스크립트를 만들고, 플레이어 오브젝트에 스크립트를 추가
+   인스펙터에서 테스트 스크립트를 우클릭해서 ContextMenu의 함수를 실행하여 테스트를 진행
+using UnityEngine;
+
+public class DamageStateTest : MonoBehaviour
+{
+    private StatManager statManager;
+    private PlayerDamageStateManager damageStateManager;
+
+    [Header("Test Settings")]
+    [SerializeField] private float testDamageAmount = 10f;
+    [SerializeField] private float testStunDuration = 5f;
+    [SerializeField] private float testKnockbackForce = 5f;
+
+    private void Awake()
+    {
+        // 필요한 컴포넌트 참조 획득
+        statManager = GetComponent<StatManager>();
+        damageStateManager = GetComponent<PlayerDamageStateManager>();
+
+        if (statManager == null || damageStateManager == null)
+        {
+            Debug.LogError("StatManager 또는 PlayerDamageStateManager가 플레이어 오브젝트에 없습니다.");
+            enabled = false;
+        }
+    }
+
+    // 현재 HP 정보를 포맷하여 반환하는 헬퍼 함수
+    private string GetHPInfo()
+    {
+        if (statManager == null) return "HP: (StatManager Not Found)";
+        
+        return $"HP: {statManager.CurrentHP:F1}/{statManager.MaxHP:F1}"; // 소수점 첫째 자리까지 표시
+    }
+
+    // ----------------------------------------------------
+    // I. 일반 피격 테스트 (StatManager -> DamageStateManager.Hit)
+    // ----------------------------------------------------
+    [ContextMenu("TEST 1: 일반 피격 (Hit State)")]
+    private void TestHitState()
+    {
+        // StatManager를 통해 데미지를 입혀 Hit 상태 로직이 시작되도록 유도
+        Debug.Log($"<color=yellow>[TEST]</color> --- TEST 1: 일반 피격 시작 (Damage: {testDamageAmount}) --- **{GetHPInfo()}**");
+        statManager.TakeDamage(testDamageAmount);
+    }
+
+    // ----------------------------------------------------
+    // II. 스턴 테스트 (DamageStateManager.Stunned)
+    // ----------------------------------------------------
+    [ContextMenu("TEST 2: 스턴 상태 (Stunned)")]
+    private void TestStunState()
+    {
+        Debug.Log($"<color=orange>[TEST]</color> --- TEST 2: 스턴 상태 시작 (Duration: {testStunDuration}s) --- **{GetHPInfo()}**");
+        // DamageStateManager의 Public 함수를 직접 호출
+        damageStateManager.StartStun(testStunDuration);
+    }
+
+    // ----------------------------------------------------
+    // III. 넉백 테스트 (DamageStateManager.Knockback)
+    // ----------------------------------------------------
+    [ContextMenu("TEST 3: 넉백 상태 (Knockback Right)")]
+    private void TestKnockbackState()
+    {
+        Debug.Log($"<color=teal>[TEST]</color> --- TEST 3: 넉백 상태 시작 (Force: {testKnockbackForce}) --- **{GetHPInfo()}**");
+        damageStateManager.StartKnockback(testKnockbackForce);
+    }
+
+    // ----------------------------------------------------
+    // IV. 사망 테스트 (StatManager -> DamageStateManager.Dead)
+    // ----------------------------------------------------
+    [ContextMenu("TEST 4: 사망 처리 (Death)")]
+    private void TestDeathState()
+    {
+        // StatManager에 대량의 피해를 입혀 사망 이벤트가 발생하도록 유도
+        float massiveDamage = statManager.CurrentHP + 1000f;
+        Debug.Log($"<color=red>[TEST]</color> --- TEST 4: 사망 처리 시작 (Damage: {massiveDamage}) --- **{GetHPInfo()}**");
+        statManager.TakeDamage(massiveDamage);
+    }
+
+    // ----------------------------------------------------
+    // V. 상태 복구 테스트
+    // ----------------------------------------------------
+    [ContextMenu("TEST 5: HP 만땅 회복")]
+    private void TestHeal()
+    {
+        statManager.HealHP(statManager.MaxHP);
+        
+        // 사망 상태에서 복구할 경우 입력 및 애니메이션 컨트롤러를 다시 활성화합니다.
+        // 일반적인 게임에서는 씬 전환 등으로 처리되지만 테스트를 위해 강제 활성화합니다.
+        if (GetComponent<PlayerInput>() != null) GetComponent<PlayerInput>().enabled = true;
+        if (GetComponent<PlayerAniController>() != null) GetComponent<PlayerAniController>().enabled = true;
+
+        Debug.Log($"<color=green>[TEST]</color> HP 만땅 회복 및 입력 복구. **{GetHPInfo()}**");
+    }
+}

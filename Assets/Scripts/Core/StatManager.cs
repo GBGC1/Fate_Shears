@@ -60,6 +60,9 @@ public class StatManager : MonoBehaviour
     public event Action<StatManager, float, float> OnHPChanged;
     public event Action<StatManager, float, float> OnStaminaChanged;
     public event Action<StatManager, StatType, float> OnFinalStatChanged;
+
+    // PlayerDamageStateManager에게 피격 반응을 요청하는 이벤트
+    public event Action<StatManager> OnHurt;
     public event Action OnDeath;
     #endregion
 
@@ -198,8 +201,14 @@ public class StatManager : MonoBehaviour
         currentHP = Mathf.Max(currentHP - finalDamage, 0);
         OnHPChanged?.Invoke(this, currentHP, MaxHP);
 
-        // 현재 HP가 0 이하가 된 경우 사망 이벤트 추가
-        if (currentHP <= 0)
+        // HP 감소 시 Damage State Manager에게 피격 반응 요청
+        // 사망 상태가 아니면 피격 이벤트 발생
+        if (currentHP > 0)
+        {
+            OnHurt?.Invoke(this);
+        }
+        // 현재 HP가 0 이하가 된 경우 사망 이벤트 발생
+        else
         {
             OnDeath?.Invoke();
         }

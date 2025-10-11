@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: 1712119492}
   - component: {fileID: 1712119491}
   - component: {fileID: 1712119493}
+  - component: {fileID: 1712119494}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -642,6 +643,7 @@ MonoBehaviour:
   groundCheckDistance: 0.1
   groundCheckSize: {x: 0.8, y: 0.1}
   groundCheckOffset: {x: 0, y: -0.6}
+  maxJumpCount: 2
   dashSpeed: 10
   dashDuration: 0.2
 --- !u!114 &1712119492
@@ -669,6 +671,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statDataSO: {fileID: 11400000, guid: 91968ee7967c5ba45a1737e9d6a05242, type: 2}
+--- !u!114 &1712119494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712119481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ca1bac3ccb8204787b2e86ea46c20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitIgnoreDuration: 0.5
+  hitSlowdownMultiplier: 0.5
+  defaultStunDuration: 1
+  defaultKnockbackForce: 2
+  knockbackDuration: 0.15
 --- !u!1 &1895646201
 GameObject:
   m_ObjectHideFlags: 0
