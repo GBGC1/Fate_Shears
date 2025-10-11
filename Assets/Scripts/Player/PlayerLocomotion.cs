@@ -20,6 +20,8 @@ public class PlayerLocomotion : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 0.05f;
     [SerializeField] private Vector2 groundCheckSize = new Vector2(0.8f, 0.1f);
     [SerializeField] private Vector2 groundCheckOffset = new Vector2(0f, -0.6f);
+    [SerializeField] private int maxJumpCount = 2;
+    private int currentJumpCount = 0;
 
     [Header("Dash Settings")]
     [SerializeField] private float dashSpeed = 10f;
@@ -50,6 +52,15 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // 지면 착지 시 점프 카운트 초기화
+        if (IsGrounded())
+        {
+            // 점프 직후에는 점프 카운트 초기화 x (점프 오작동 방지)
+            if (rb.linearVelocity.y <= 0) 
+            {
+                currentJumpCount = 0;
+            }
+        }
         // 대시 중이 아닐 때만 일반 이동 처리
         if (!isDashing)
         {
@@ -75,12 +86,14 @@ public class PlayerLocomotion : MonoBehaviour
         }
     }
 
-    // 점프 물리 제어
+    // 점프/2단점프 물리 제어
     private void HandleJump()
     {
-        if (IsGrounded())
+        // 점프 최대 2회 허용
+        if (currentJumpCount < maxJumpCount)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            currentJumpCount++;
         }
     }
 
