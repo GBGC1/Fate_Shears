@@ -49,6 +49,7 @@ public class AttackHandler : MonoBehaviour
 
     private void ResetNextAtk()
     {
+        Debug.Log("ResetNextAtk");
         animator.SetBool("NextAtk", false);
     }
 
