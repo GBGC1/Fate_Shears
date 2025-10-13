@@ -100,15 +100,6 @@ public partial class @InputAttackKey: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ChangeForm"",
-                    ""type"": ""Button"",
-                    ""id"": ""e8fb2c3d-2a29-4c1d-8700-0fbd77ce2838"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -122,17 +113,6 @@ public partial class @InputAttackKey: IInputActionCollection2, IDisposable
                     ""action"": ""BasicAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a45c5440-674c-44a7-8dab-0e4d772a0c5a"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ChangeForm"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -142,7 +122,6 @@ public partial class @InputAttackKey: IInputActionCollection2, IDisposable
         // Attack
         m_Attack = asset.FindActionMap("Attack", throwIfNotFound: true);
         m_Attack_BasicAttack = m_Attack.FindAction("BasicAttack", throwIfNotFound: true);
-        m_Attack_ChangeForm = m_Attack.FindAction("ChangeForm", throwIfNotFound: true);
     }
 
     ~@InputAttackKey()
@@ -224,7 +203,6 @@ public partial class @InputAttackKey: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Attack;
     private List<IAttackActions> m_AttackActionsCallbackInterfaces = new List<IAttackActions>();
     private readonly InputAction m_Attack_BasicAttack;
-    private readonly InputAction m_Attack_ChangeForm;
     /// <summary>
     /// Provides access to input actions defined in input action map "Attack".
     /// </summary>
@@ -240,10 +218,6 @@ public partial class @InputAttackKey: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Attack/BasicAttack".
         /// </summary>
         public InputAction @BasicAttack => m_Wrapper.m_Attack_BasicAttack;
-        /// <summary>
-        /// Provides access to the underlying input action "Attack/ChangeForm".
-        /// </summary>
-        public InputAction @ChangeForm => m_Wrapper.m_Attack_ChangeForm;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -273,9 +247,6 @@ public partial class @InputAttackKey: IInputActionCollection2, IDisposable
             @BasicAttack.started += instance.OnBasicAttack;
             @BasicAttack.performed += instance.OnBasicAttack;
             @BasicAttack.canceled += instance.OnBasicAttack;
-            @ChangeForm.started += instance.OnChangeForm;
-            @ChangeForm.performed += instance.OnChangeForm;
-            @ChangeForm.canceled += instance.OnChangeForm;
         }
 
         /// <summary>
@@ -290,9 +261,6 @@ public partial class @InputAttackKey: IInputActionCollection2, IDisposable
             @BasicAttack.started -= instance.OnBasicAttack;
             @BasicAttack.performed -= instance.OnBasicAttack;
             @BasicAttack.canceled -= instance.OnBasicAttack;
-            @ChangeForm.started -= instance.OnChangeForm;
-            @ChangeForm.performed -= instance.OnChangeForm;
-            @ChangeForm.canceled -= instance.OnChangeForm;
         }
 
         /// <summary>
@@ -340,12 +308,5 @@ public partial class @InputAttackKey: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnBasicAttack(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "ChangeForm" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnChangeForm(InputAction.CallbackContext context);
     }
 }
