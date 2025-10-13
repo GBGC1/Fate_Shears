@@ -1,6 +1,8 @@
 using System;
+using Script.Manager.Events;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using Weapon;
 
 public class AttackHandler : MonoBehaviour
@@ -8,7 +10,7 @@ public class AttackHandler : MonoBehaviour
     private InputAttackKey attackKey;
     private Animator animator;
 
-    private WeaponType currentForm = WeaponType.Shears;
+    public static WeaponType CurrentForm { get; private set; } = WeaponType.Shears;
 
     void Start()
     {
@@ -27,10 +29,10 @@ public class AttackHandler : MonoBehaviour
 
     private void ChangeForm(InputAction.CallbackContext ctx)
     {
-        int next = ((int)currentForm + 1) % Enum.GetValues(typeof(WeaponType)).Length;
-        currentForm = (WeaponType)next;
-
-        WeaponBody.ChangeStat(currentForm);
+        int next = ((int)CurrentForm + 1) % Enum.GetValues(typeof(WeaponType)).Length;
+        CurrentForm = (WeaponType)next;
+        EventBus.Instance().Publish(new ChangeWeaponEventData(CurrentForm.ToString()));
+        WeaponBody.ChangeStat(CurrentForm);
     }
 
     private void StartBasicAttackAnimation()
@@ -38,7 +40,7 @@ public class AttackHandler : MonoBehaviour
         if (!animator.GetBool("Atk"))
         {
             animator.SetBool("Atk", true);
-            animator.SetInteger("WeaponForm", (int)currentForm);
+            animator.SetInteger("WeaponForm", (int)CurrentForm);
             attackKey.Attack.ChangeForm.Disable();
         }
         else
