@@ -22,9 +22,15 @@ namespace Script.Enemy
             timer += Time.deltaTime;
             if (timer >= idleTime)
             {
+                if (controller.NextState != null)
+                {
+                    controller.ChangeState(controller.NextState);
+                }
+
                 controller.ChangeState(new EnemyStateMove(controller));
             }
         }
+
         public override void End()
         {
         }

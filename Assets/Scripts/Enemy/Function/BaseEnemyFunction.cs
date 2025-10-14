@@ -14,17 +14,24 @@ namespace Script.Enemy.Function
         public virtual void StartMove()
         {
             Debug.Log("StartMove");
-            //animator.SetBool("Move",true);
+            animator.SetBool("Move",true);
         }
 
         public virtual void EndMove()
         {
             Debug.Log("EndMove");
-            //animator.SetBool("Move",false);
+            animator.SetBool("Move",false);
         }
 
-        public abstract void Attack();
-        public abstract void Death();
+        public virtual void Attack()
+        {
+            animator.SetTrigger("Attack");
+        }
+
+        public virtual void Death()
+        {
+            animator.SetTrigger("Death");
+        }
 
     }
 }

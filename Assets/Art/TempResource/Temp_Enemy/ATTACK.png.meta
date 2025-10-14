@@ -118,12 +118,12 @@ TextureImporter:
       name: ATTACK_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 0
-        width: 23
-        height: 25
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -142,10 +142,10 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 27
-        height: 25
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: ATTACK_2
       rect:
         serializedVersion: 2
-        x: 68
+        x: 64
         y: 0
-        width: 23
-        height: 25
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: ATTACK_3
       rect:
         serializedVersion: 2
-        x: 101
+        x: 96
         y: 0
-        width: 21
-        height: 25
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -206,12 +206,12 @@ TextureImporter:
       name: ATTACK_4
       rect:
         serializedVersion: 2
-        x: 135
+        x: 128
         y: 0
-        width: 21
-        height: 25
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -228,12 +228,12 @@ TextureImporter:
       name: ATTACK_5
       rect:
         serializedVersion: 2
-        x: 166
+        x: 160
         y: 0
-        width: 22
-        height: 25
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -266,7 +266,6 @@ TextureImporter:
       ATTACK_3: -5421470884539877244
       ATTACK_4: -637045071952103482
       ATTACK_5: -8222471432525534737
-      ATTACK_6: 776949919
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

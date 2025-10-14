@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyStateController : MonoBehaviour
 {
     public BaseEnemyFunction Function { get; private set; }
-    private EnemyStateBase currentStateBase;
+    private EnemyStateBase currentState;
+    public EnemyStateBase NextState;
 
     public Rigidbody2D Rigidbody { get; private set; }
 
@@ -14,27 +15,27 @@ public class EnemyStateController : MonoBehaviour
         Function = GetComponent<BaseEnemyFunction>();
         Rigidbody = GetComponent<Rigidbody2D>();
 
-        currentStateBase = new EnemyStateIdle(this);
+        currentState = new EnemyStateIdle(this);
     }
 
     void Update()
     {
-        Debug.Log(currentStateBase.GetType().Name);
-        currentStateBase.Update();
+        Debug.Log(currentState.GetType().Name);
+        currentState.Update();
     }
 
     public void ChangeState(EnemyStateBase stateBase)
     {
-        if (currentStateBase.CanChangeState)
+        if (currentState.CanChangeState)
         {
-            currentStateBase.End();
-            currentStateBase = stateBase;
-            currentStateBase.Start();
+            currentState.End();
+            currentState = stateBase;
+            currentState.Start();
         }
     }
 
     public void CanChangeState()
     {
-        currentStateBase.CanChangeState = true;
+        currentState.CanChangeState = true;
     }
 }
