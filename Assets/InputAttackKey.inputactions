@@ -14,15 +14,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "ChangeForm",
-                    "type": "Button",
-                    "id": "e8fb2c3d-2a29-4c1d-8700-0fbd77ce2838",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -34,17 +25,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "BasicAttack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a45c5440-674c-44a7-8dab-0e4d772a0c5a",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ChangeForm",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

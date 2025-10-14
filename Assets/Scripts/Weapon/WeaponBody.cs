@@ -3,20 +3,20 @@ using Weapon;
 
 public class WeaponBody : MonoBehaviour
 {
-    public static WeaponStats.WeaponStat Stat { get; private set; }
-
-    void Awake()
-    {
-        WeaponStats.LoadStats();
-    }
+    public WeaponStats.WeaponStat Stat { get; private set; }
+    
     void Start()
     {
         ChangeStat(WeaponType.Shears);
     }
 
-    public static void ChangeStat(WeaponType type)
+    // Update is called once per frame
+    void Update()
+    {
+    }
+
+    public void ChangeStat(WeaponType type)
     {
         Stat = WeaponStats.GetWeaponStat(type);
-        Debug.Log(Stat.Type);
     }
 }
