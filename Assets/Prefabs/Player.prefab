@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6699945854644491822}
   - component: {fileID: 2395407492373929372}
   - component: {fileID: 5249561369181688211}
+  - component: {fileID: 7704894825232611223}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -298,3 +299,20 @@ MonoBehaviour:
   defaultStunDuration: 1
   defaultKnockbackForce: 2
   knockbackDuration: 0.15
+--- !u!114 &7704894825232611223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637058775880585263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ae617da4c5dcb40a38ec1d2738fc59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 2395407492373929372}
+  locomotion: {fileID: 6699945854644491822}
+  currentFatigue: 0
+  currentStage: 0
+  fatigueIncreaseRate: 0.5
