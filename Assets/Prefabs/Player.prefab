@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 2395407492373929372}
   - component: {fileID: 5249561369181688211}
   - component: {fileID: 7704894825232611223}
+  - component: {fileID: 2517229581724690517}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -313,6 +314,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 2395407492373929372}
   locomotion: {fileID: 6699945854644491822}
+  visionController: {fileID: 0}
+  statusManager: {fileID: 2517229581724690517}
   currentFatigue: 0
   currentStage: 0
   fatigueIncreaseRate: 0.5
+  restRecoveryAmount: 50
+  unshadowRecoveryAmount: 10
+--- !u!114 &2517229581724690517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637058775880585263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a58728cbec918e8419604d8419e31a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStat: {fileID: 2395407492373929372}
+  locomotion: {fileID: 6699945854644491822}
+  isBleeding: 0
+  isFractured: 0
+  isPoisoning: 0
+  isBurned: 0
+  bleedingDamage: 0.5
+  fractureMoveSpeedPenalty: 0.7
+  poisoningDamage: 0.5
+  burnDamage: 1
+  burnIntervalMin: 2
+  burnIntervalMax: 5
