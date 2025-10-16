@@ -12,6 +12,7 @@ public class PlayerLocomotion : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private PlayerDamageStateManager damageStateManager;
+    private StatusEffectManager statusManager;
 
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 4f;
@@ -43,6 +44,7 @@ public class PlayerLocomotion : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>(); 
         damageStateManager = GetComponent<PlayerDamageStateManager>();
+        statusManager = GetComponent<StatusEffectManager>();
 
         // 이벤트 구독
         playerInput.OnJumpEvent += HandleJump;
@@ -124,6 +126,9 @@ public class PlayerLocomotion : MonoBehaviour
     // 점프/2단점프 물리 제어
     private void HandleJump()
     {
+        // 골절 시 점프 불가
+        if (statusManager.IsFractured) return;
+
         // 점프 최대 2회 허용
         if (currentJumpCount < maxJumpCount)
         {

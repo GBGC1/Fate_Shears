@@ -18,6 +18,7 @@ public class FatigueSystem : MonoBehaviour
     [SerializeField] private StatManager playerStats;
     [SerializeField] private PlayerLocomotion locomotion;
     [SerializeField] private FatigueEffectVisual visionController;   // 시야 축소/차단 역할
+    [SerializeField] private StatusEffectManager statusManager;
 
     [Header("Current Fatigue Status")]
     [Range(0f, 100f)]
@@ -82,6 +83,9 @@ public class FatigueSystem : MonoBehaviour
     // 휴식 장소에서 피로도 회복
     public void RestAtSafeZone()
     {
+        // 중독 시 휴식 불가 상태로 무시
+        if (!statusManager.CanRest) return;
+
         // 휴식 시 피로도 회복량만큼 피로도 감소
         AddFatigue(-restRecoveryAmount);
 
