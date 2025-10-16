@@ -12,29 +12,44 @@ public enum FatigueStage
     Exhausted        // 90 - 100% (탈진)
 }
 
-
 public class FatigueSystem : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private StatManager playerStats;
     [SerializeField] private PlayerLocomotion locomotion;
-    //private FatigueEffectVisual visualController; // 시각 효과 담당 스크립트
+    [SerializeField] private FatigueEffectVisual visionController;   // 시야 축소/차단 역할
 
     [Header("Current Fatigue Status")]
     [Range(0f, 100f)]
     [SerializeField] private float currentFatigue = 0f;
     [SerializeField] private FatigueStage currentStage = FatigueStage.None;
 
-    [Header("Fatigue Rate Settings")]
+    [Header("Fatigue Settings")]
     [SerializeField] private float fatigueIncreaseRate = 0.5f;  // 전투/이동 중 초당 피로도 증가율
+    [SerializeField] private float restRecoveryAmount = 50f;   // 휴식 시 피로도 회복량
+    // 피로도 100이 되어 그림자 상태로 전환 후 해제 시 피로도 회복량
+    [SerializeField] private float unshadowRecoveryAmount = 10f;
 
     private bool isExhaustedTriggered = false;
+    private bool isExhaustedFinished = false;
 
-    //
+    #region Properties
+    public bool IsExhaustedTriggered
+    {
+        get => isExhaustedTriggered;
+        set => isExhaustedTriggered = value;
+    }
+    public bool IsExhaustedFinished
+    {
+        get => isExhaustedFinished;
+        set => isExhaustedFinished = value;
+    }
+    #endregion
+
     private void Awake()
     {
         // 레퍼런스 체크
-        if (playerStats == null || locomotion == null)
+        if (playerStats == null || locomotion == null || visionController == null)
         {
             Debug.LogError("필수 컴포넌트를 찾지 못했습니다.");
             enabled = false;
@@ -56,13 +71,46 @@ public class FatigueSystem : MonoBehaviour
         // 피로도 구간 확인
         CheckFatigueStage();
     }
-
+    #region Fatigue Increase/Decrease Methods
     // 이동/대시 시 피로도 증가
     public void AddFatigue(float amount)
     {
         // 피로도 범위 0~100으로 제한
         currentFatigue = Mathf.Clamp(currentFatigue + amount, 0f, 100f);
     }
+
+    // 휴식 장소에서 피로도 회복
+    public void RestAtSafeZone()
+    {
+        // 휴식 시 피로도 회복량만큼 피로도 감소
+        AddFatigue(-restRecoveryAmount);
+
+        Debug.Log("휴식 장소에 피로도 회복 (-50)");
+
+        // 휴식 시 탈진 상태 플래그 초기화
+        isExhaustedTriggered = false;
+        isExhaustedFinished = false;
+
+        // 피로도 구간 확인하여 패널티 해제
+        CheckFatigueStage();
+    }
+
+    // 피로도에 의한 그림자 전환 후 해제 시 피로도 소량 회복
+    private void ApplyUnshadowRecovery()
+    {
+        // 그림자 해제 시 피로도 회복량만큼 피로도 감소
+        AddFatigue(-unshadowRecoveryAmount);
+
+        Debug.Log("그림자 해제 : 피로도 소량 회복");
+
+        // 그림자 해제 시 탈진 상태 플래그 초기화
+        isExhaustedTriggered = false;
+        isExhaustedFinished = false;
+
+        // 피로도 구간 재확인 (탈진(90%) 상태 유지)
+        CheckFatigueStage();
+    }
+    #endregion
 
     // 현재 피로도 구간 확인 및 전환
     private void CheckFatigueStage()
@@ -82,12 +130,19 @@ public class FatigueSystem : MonoBehaviour
             currentStage = newStage;
         }
 
-        // 현재 피로도가 100이 된 경우 그림자 전환
-        if (currentFatigue >= 100f && !isExhaustedTriggered)
+        // 현재 피로도가 100 이상이며 탈진 상태 플래그가 모두 false인 경우
+        if (currentFatigue >= 100f && !isExhaustedTriggered && !isExhaustedFinished)
         {
             isExhaustedTriggered = true;
-            // 그림자 전환
+            isExhaustedFinished = false;
+
             Debug.Log("피로도 100% 도달");
+
+            // 3초간 시야 차단 활성화
+            visionController.ActivateVisionObstruction();
+
+            // 그림자 전환 (차후 추가)
+            // 그림자 해제 시 피로도 소량 회복 (완료)
         }
     }
 
@@ -97,12 +152,15 @@ public class FatigueSystem : MonoBehaviour
         locomotion.MoveSpeedMultiplier = 1f;
         playerStats.StaminaMultiplier = 1f;
 
+        // 시야 축소 효과는 기본적으로 비활성화
+        bool isVisionShrinkActive = false;
+
         // 피로도 구간별 패널티 설정
         switch (stage)
         {
             case FatigueStage.MildlyFatigued:
                 // 이동 속도 소폭 감소 (-10%)
-                locomotion.MoveSpeedMultiplier = 0.90f; 
+                locomotion.MoveSpeedMultiplier = 0.90f;
                 break;
             case FatigueStage.Fatigued:
                 // 이동 속도 감소 (-20%)
@@ -114,15 +172,28 @@ public class FatigueSystem : MonoBehaviour
                 playerStats.StaminaMultiplier = 1.10f;
                 break;
             case FatigueStage.Exhausted:
-                // 이동 속도 대폭 감소 (-50%), 스태미나 소모율 증가 (+25%), 시야 감소
+                // 이동 속도 대폭 감소 (-50%), 스태미나 소모율 증가 (+25%), 시야 축소
                 locomotion.MoveSpeedMultiplier = 0.50f;
                 playerStats.StaminaMultiplier = 1.25f;
-                //if (visualController != null) visualController.ActivateVisionShrink(true);
+                isVisionShrinkActive = true;    // 시야 축소 플래그 true로 설정
                 break;
             case FatigueStage.None:
                 locomotion.MoveSpeedMultiplier = 1f;
                 playerStats.StaminaMultiplier = 1f;
                 break;
+        }
+        
+        // 시야 축소 플래그에 따라 시야 축소 효과 적용/해제
+        if (isVisionShrinkActive)
+        {
+            // 피로도 90% 이상인 경우 시야 축소 활성화
+            visionController.ActivateVisionShrink();
+        }
+        else
+        {
+            // 피로도 90% 미만인 경우 시야 축소 해제
+            visionController.RemoveVisionShrink();
+            isVisionShrinkActive = false;
         }
     }
 }
