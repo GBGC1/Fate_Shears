@@ -21,7 +21,7 @@ public class StatModifier
 {
     public readonly float Value;
     public readonly StatModType Type;
-    public readonly IStatSource Source;    // 보정치 적용 요인 (장비, 버프)
+    public readonly IStatSource Source;     // 보정치 적용 요인 (장비, 버프)
     public readonly int SourceID;           // 보정치 제거를 위한 고유 ID
 
     public StatModifier(float value, StatModType type, IStatSource source)
@@ -76,6 +76,7 @@ public class StatManager : MonoBehaviour
 
     public float CurrentHP => currentHP;
     public float CurrentStamina => currentStamina;
+    public float StaminaMultiplier { get; set; } = 1f;
     #endregion
 
     private void Awake()
@@ -99,6 +100,7 @@ public class StatManager : MonoBehaviour
         OnStaminaChanged?.Invoke(this, currentStamina, MaxStamina);
     }
 
+    #region Modifier Methods
     // 영구적인 스탯 증가/감소 처리 (<= 능력 포인트 투자)
     public void UpgradeStat(StatType statType, float amount)
     {
@@ -130,7 +132,9 @@ public class StatManager : MonoBehaviour
             UpdateFinalStat(statType);
         }
     }
+    #endregion
 
+    #region Final Stat Methods
     // 최종 스탯 계산 처리
     private float CalculateFinalStat(StatType statType)
     {
@@ -189,7 +193,9 @@ public class StatManager : MonoBehaviour
             OnFinalStatChanged?.Invoke(this, statType, finalValue);
         }
     }
+    #endregion
 
+    #region HP/Stamina Methods
     // 데미지 처리 (HP 감소)
     public void TakeDamage(float amount)
     {
@@ -224,9 +230,10 @@ public class StatManager : MonoBehaviour
     // 스테미너 소모
     public void UseStamina(float amount)
     {
-        if (currentStamina >= amount)
+        float finalAmount = amount * StaminaMultiplier;
+        if (currentStamina >= finalAmount)
         {
-            currentStamina -= amount;
+            currentStamina -= finalAmount;
             OnStaminaChanged?.Invoke(this, currentStamina, MaxStamina);
         }
     }
@@ -237,4 +244,6 @@ public class StatManager : MonoBehaviour
         currentStamina = Mathf.Min(currentStamina + amount, MaxStamina);
         OnStaminaChanged?.Invoke(this, currentStamina, MaxStamina);
     }
+    #endregion
+
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 /// <summary>
 /// Player의 실제 이동, 점프, 대시 로직을 처리하는 클래스
@@ -15,6 +16,7 @@ public class PlayerLocomotion : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 4f;
     public float MoveSpeedMultiplier { get; set; } = 1f;    // 이동 속도 배율
+    private bool isMoving = false;
 
     [Header("Jump Settings")]
     [SerializeField] private float jumpForce = 7f;
@@ -24,12 +26,16 @@ public class PlayerLocomotion : MonoBehaviour
     [SerializeField] private Vector2 groundCheckOffset = new Vector2(0f, -0.6f);
     [SerializeField] private int maxJumpCount = 2;
     private int currentJumpCount = 0;
+    private bool isJumping = false;
 
     [Header("Dash Settings")]
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashDuration = 0.2f;
-
     private bool isDashing = false; // 대시 중 상태 관리
+
+    public bool IsMoving => isMoving;
+    public bool IsJumping => isJumping;
+    public bool IsDashing => isDashing;
 
     private void Awake()
     {
@@ -62,19 +68,38 @@ public class PlayerLocomotion : MonoBehaviour
             if (rb.linearVelocity.y <= 0)
             {
                 currentJumpCount = 0;
+                isJumping = false;
             }
         }
         // 이동 제한 상태인 경우 (일반/피격 상태 제외) 이동 처리 무시
-        if (damageStateManager.CurrentDamageState != DamageState.Normal && 
+        if (damageStateManager.CurrentDamageState != DamageState.Normal &&
         damageStateManager.CurrentDamageState != DamageState.Hit)
         {
-            return; 
+            return;
         }
 
         // 대시 중이 아닐 때만 일반 이동 처리
         if (!isDashing)
         {
             HandleMovement();
+        }
+
+        CheckMovement();
+    }
+    
+    // 현재 이동 상태 확인
+    private void CheckMovement()
+    {
+        // 물리적인 움직임이 있는지 판단
+        bool isMovingPhysically = Mathf.Abs(rb.linearVelocity.x) > 0.01f;
+
+        // 대시 중이거나 이동 중인 경우 newMoveState에 true가 할당
+        bool newMovementState = isDashing || isMovingPhysically;
+
+        // 현재 이동 상태가 변경된 경우에만 이벤트 발행
+        if (newMovementState != isMoving)
+        {
+            isMoving = newMovementState;
         }
     }
 
@@ -102,6 +127,7 @@ public class PlayerLocomotion : MonoBehaviour
         // 점프 최대 2회 허용
         if (currentJumpCount < maxJumpCount)
         {
+            isJumping = true;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             currentJumpCount++;
         }
