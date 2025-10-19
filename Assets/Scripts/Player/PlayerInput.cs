@@ -16,8 +16,9 @@ public class PlayerInput : MonoBehaviour
     // 플레이어 입력 이벤트 선언 (점프/대시)
     public event Action OnJumpEvent;
     public event Action OnDashEvent;
-     // 능력치 창 토글을 위한 새 이벤트 추가
+    // 능력치 창 토글을 위한 새 이벤트 추가
     public event Action OnToggleAbilityWindowEvent;
+    public event Action OnToggleShadowEvent;
 
     #region Player Input Properties
     public Vector2 MoveVector => moveVector;
@@ -69,6 +70,14 @@ public class PlayerInput : MonoBehaviour
         if (value.isPressed)
         {
             OnToggleAbilityWindowEvent?.Invoke();
+        }
+    }
+    
+    void OnToggleShadow(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            OnToggleShadowEvent?.Invoke();
         }
     }
     

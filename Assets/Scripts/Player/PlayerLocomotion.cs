@@ -34,9 +34,15 @@ public class PlayerLocomotion : MonoBehaviour
     [SerializeField] private float dashDuration = 0.2f;
     private bool isDashing = false; // 대시 중 상태 관리
 
+    [Header("Shadow Settings")]
+    [SerializeField] private GameObject shadowObject;
+    private Color originalPlayerColor;
+    private bool isShadowModeActive = false;
+
     public bool IsMoving => isMoving;
     public bool IsJumping => isJumping;
     public bool IsDashing => isDashing;
+    public bool Grounded => IsGrounded();
 
     private void Awake()
     {
@@ -46,9 +52,19 @@ public class PlayerLocomotion : MonoBehaviour
         damageStateManager = GetComponent<PlayerDamageStateManager>();
         statusManager = GetComponent<StatusEffectManager>();
 
+        // 그림자 제어 초기화
+        if (shadowObject == null)
+        {
+            Debug.LogError("Shadow 오브젝트가 연결되지 않았습니다! 인스펙터 창에서 연결해주세요.", this);
+            enabled = false;
+            return;
+        }
+        originalPlayerColor = spriteRenderer.color;
+
         // 이벤트 구독
         playerInput.OnJumpEvent += HandleJump;
         playerInput.OnDashEvent += HandleDash;
+        playerInput.OnToggleShadowEvent += HandleToggleShadow;
     }
 
     private void OnDestroy()
@@ -58,6 +74,8 @@ public class PlayerLocomotion : MonoBehaviour
         {
             playerInput.OnJumpEvent -= HandleJump;
             playerInput.OnDashEvent -= HandleDash;
+            playerInput.OnToggleShadowEvent -= HandleToggleShadow;
+            
         }
     }
 
@@ -73,6 +91,9 @@ public class PlayerLocomotion : MonoBehaviour
                 isJumping = false;
             }
         }
+
+        HandleShadowOnJump();
+
         // 이동 제한 상태인 경우 (일반/피격 상태 제외) 이동 처리 무시
         if (damageStateManager.CurrentDamageState != DamageState.Normal &&
         damageStateManager.CurrentDamageState != DamageState.Hit)
@@ -205,10 +226,59 @@ public class PlayerLocomotion : MonoBehaviour
 
         // 대시 지속 시간만큼 기다림
         yield return new WaitForSeconds(dashDuration);
-        
+
         // 대시 종료 후 기존 속도 복원
-        rb.linearVelocity = new Vector2(originalVelocity, rb.linearVelocity.y); 
+        rb.linearVelocity = new Vector2(originalVelocity, rb.linearVelocity.y);
 
         isDashing = false;
     }
+
+     #region Shadow Control Methods
+
+    /// <summary>
+    /// PlayerInput의 OnToggleShadowEvent 신호를 받아 그림자 모드를 토글합니다.
+    /// </summary>
+    private void HandleToggleShadow()
+    {
+        isShadowModeActive = !isShadowModeActive;
+        UpdateShadowVisuals();
+    }
+
+    /// <summary>
+    /// 그림자 모드 상태에 따라 플레이어와 그림자의 모습을 업데이트합니다.
+    /// </summary>
+    private void UpdateShadowVisuals()
+    {
+        if (isShadowModeActive)
+        {
+            // 그림자 모드 활성화: 그림자 끄고, 플레이어 검게
+            shadowObject.SetActive(false);
+            spriteRenderer.color = Color.black;
+        }
+        else
+        {
+            // 그림자 모드 비활성화: 플레이어 색상 원래대로, 그림자는 지면 상태에 따라 결정
+            spriteRenderer.color = originalPlayerColor;
+            HandleShadowOnJump(); // 상태 변경 시 즉시 그림자 상태 업데이트
+        }
+    }
+
+    /// <summary>
+    /// 플레이어의 지면 상태에 따라 그림자를 켜고 끕니다. (그림자 모드가 아닐 때만 작동)
+    /// </summary>
+    private void HandleShadowOnJump()
+    {
+        if (isShadowModeActive) return;
+
+        if (Grounded)
+        {
+            shadowObject.SetActive(true); // 땅에 있으면 그림자 켜기
+        }
+        else
+        {
+            shadowObject.SetActive(false); // 공중에 있으면 그림자 끄기
+        }
+    }
+
+    #endregion
 }
