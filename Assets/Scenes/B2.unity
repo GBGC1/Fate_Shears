@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 57883773}
   - component: {fileID: 57883772}
   - component: {fileID: 57883771}
+  - component: {fileID: 57883774}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -425,6 +426,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &57883774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57883769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &62134261
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +452,7 @@ GameObject:
   - component: {fileID: 62134265}
   - component: {fileID: 62134264}
   - component: {fileID: 62134263}
+  - component: {fileID: 62134266}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -731,6 +747,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &62134266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62134261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &93031866
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,6 +771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 93031867}
   - component: {fileID: 93031868}
+  - component: {fileID: 93031869}
   m_Layer: 0
   m_Name: Area1
   m_TagString: Untagged
@@ -816,6 +847,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
+--- !u!114 &93031869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93031866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b041ca7497f57c8439b6d7a559e4f120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  area: 0
 --- !u!1 &96741065
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overlayImage: {fileID: 1590678041}
-  fatigueSystem: {fileID: 804782487}
+  fatigueSystem: {fileID: 7704894824905979393}
   lightDarknessAlpha: 0.5
   darknessDuration: 3
 --- !u!114 &96741067
@@ -947,6 +991,7 @@ GameObject:
   - component: {fileID: 118157744}
   - component: {fileID: 118157743}
   - component: {fileID: 118157742}
+  - component: {fileID: 118157745}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -1241,6 +1286,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &118157745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118157740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &155061843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,6 +1312,7 @@ GameObject:
   - component: {fileID: 155061847}
   - component: {fileID: 155061846}
   - component: {fileID: 155061845}
+  - component: {fileID: 155061848}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -1547,6 +1607,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &155061848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155061843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &271085743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,6 +1633,7 @@ GameObject:
   - component: {fileID: 271085747}
   - component: {fileID: 271085746}
   - component: {fileID: 271085745}
+  - component: {fileID: 271085748}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -1853,6 +1928,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &271085748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271085743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &318871982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,6 +1954,7 @@ GameObject:
   - component: {fileID: 318871986}
   - component: {fileID: 318871985}
   - component: {fileID: 318871984}
+  - component: {fileID: 318871987}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -2159,6 +2249,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &318871987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318871982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &334486790
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,6 +2275,7 @@ GameObject:
   - component: {fileID: 334486794}
   - component: {fileID: 334486793}
   - component: {fileID: 334486792}
+  - component: {fileID: 334486795}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -2465,6 +2570,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &334486795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334486790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &355411146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,6 +2596,7 @@ GameObject:
   - component: {fileID: 355411150}
   - component: {fileID: 355411149}
   - component: {fileID: 355411148}
+  - component: {fileID: 355411151}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -2771,6 +2891,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &355411151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355411146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &369997022
 GameObject:
   m_ObjectHideFlags: 0
@@ -2783,6 +2917,7 @@ GameObject:
   - component: {fileID: 369997026}
   - component: {fileID: 369997025}
   - component: {fileID: 369997024}
+  - component: {fileID: 369997027}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -3077,6 +3212,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &369997027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369997022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &425085910
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,8 +3238,9 @@ GameObject:
   - component: {fileID: 425085914}
   - component: {fileID: 425085913}
   - component: {fileID: 425085912}
+  - component: {fileID: 425085915}
   m_Layer: 3
-  m_Name: PlatForm (5)
+  m_Name: PlatForm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3383,6 +3533,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &425085915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425085910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &454280517
 GameObject:
   m_ObjectHideFlags: 0
@@ -3395,6 +3559,7 @@ GameObject:
   - component: {fileID: 454280521}
   - component: {fileID: 454280520}
   - component: {fileID: 454280519}
+  - component: {fileID: 454280522}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -3689,6 +3854,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &454280522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454280517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &464760418
 GameObject:
   m_ObjectHideFlags: 0
@@ -3701,6 +3880,7 @@ GameObject:
   - component: {fileID: 464760422}
   - component: {fileID: 464760421}
   - component: {fileID: 464760420}
+  - component: {fileID: 464760423}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -3995,6 +4175,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &464760423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464760418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &502657997
 GameObject:
   m_ObjectHideFlags: 0
@@ -4007,6 +4201,7 @@ GameObject:
   - component: {fileID: 502658001}
   - component: {fileID: 502658000}
   - component: {fileID: 502657999}
+  - component: {fileID: 502658002}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -4301,6 +4496,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &502658002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502657997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &544154574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4313,8 +4522,9 @@ GameObject:
   - component: {fileID: 544154578}
   - component: {fileID: 544154577}
   - component: {fileID: 544154576}
+  - component: {fileID: 544154579}
   m_Layer: 3
-  m_Name: PlatForm (3)
+  m_Name: PlatForm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4607,6 +4817,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &544154579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544154574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &547740563
 GameObject:
   m_ObjectHideFlags: 0
@@ -4667,7 +4891,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.08235294, g: 0.07450981, b: 0.14901961, a: 1}
   m_FlipX: 0
@@ -4706,6 +4930,7 @@ GameObject:
   - component: {fileID: 611655106}
   - component: {fileID: 611655105}
   - component: {fileID: 611655104}
+  - component: {fileID: 611655107}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -5000,6 +5225,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &611655107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611655102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &623866401
 GameObject:
   m_ObjectHideFlags: 0
@@ -5012,6 +5251,7 @@ GameObject:
   - component: {fileID: 623866405}
   - component: {fileID: 623866404}
   - component: {fileID: 623866403}
+  - component: {fileID: 623866406}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -5306,6 +5546,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &623866406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623866401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &626660182
 GameObject:
   m_ObjectHideFlags: 0
@@ -5366,7 +5620,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.08235294, g: 0.07450981, b: 0.14901961, a: 1}
   m_FlipX: 0
@@ -5393,78 +5647,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1149999865}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &804782486
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1637058775880585263, guid: 16c9b4039cd9f8e49b8892de4e3eeadc, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5877015653859284053, guid: 16c9b4039cd9f8e49b8892de4e3eeadc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 5877015653859284053, guid: 16c9b4039cd9f8e49b8892de4e3eeadc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -9.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5877015653859284053, guid: 16c9b4039cd9f8e49b8892de4e3eeadc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5877015653859284053, guid: 16c9b4039cd9f8e49b8892de4e3eeadc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5877015653859284053, guid: 16c9b4039cd9f8e49b8892de4e3eeadc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5877015653859284053, guid: 16c9b4039cd9f8e49b8892de4e3eeadc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5877015653859284053, guid: 16c9b4039cd9f8e49b8892de4e3eeadc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5877015653859284053, guid: 16c9b4039cd9f8e49b8892de4e3eeadc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5877015653859284053, guid: 16c9b4039cd9f8e49b8892de4e3eeadc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5877015653859284053, guid: 16c9b4039cd9f8e49b8892de4e3eeadc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7704894825232611223, guid: 16c9b4039cd9f8e49b8892de4e3eeadc, type: 3}
-      propertyPath: visionController
-      value: 
-      objectReference: {fileID: 96741066}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 16c9b4039cd9f8e49b8892de4e3eeadc, type: 3}
---- !u!114 &804782487 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7704894825232611223, guid: 16c9b4039cd9f8e49b8892de4e3eeadc, type: 3}
-  m_PrefabInstance: {fileID: 804782486}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34ae617da4c5dcb40a38ec1d2738fc59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &830511438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5477,6 +5659,7 @@ GameObject:
   - component: {fileID: 830511442}
   - component: {fileID: 830511441}
   - component: {fileID: 830511440}
+  - component: {fileID: 830511443}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -5771,6 +5954,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &830511443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830511438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &888693545
 GameObject:
   m_ObjectHideFlags: 0
@@ -5831,7 +6028,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.08235294, g: 0.07450981, b: 0.14901961, a: 1}
   m_FlipX: 0
@@ -5868,6 +6065,7 @@ GameObject:
   m_Component:
   - component: {fileID: 891617878}
   - component: {fileID: 891617879}
+  - component: {fileID: 891617880}
   m_Layer: 0
   m_Name: Area2
   m_TagString: Untagged
@@ -5943,6 +6141,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
+--- !u!114 &891617880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891617877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b041ca7497f57c8439b6d7a559e4f120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  area: 1
 --- !u!1 &981225513
 GameObject:
   m_ObjectHideFlags: 0
@@ -5955,6 +6166,7 @@ GameObject:
   - component: {fileID: 981225517}
   - component: {fileID: 981225516}
   - component: {fileID: 981225515}
+  - component: {fileID: 981225518}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -6249,6 +6461,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &981225518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981225513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1075860019
 GameObject:
   m_ObjectHideFlags: 0
@@ -6261,6 +6487,7 @@ GameObject:
   - component: {fileID: 1075860023}
   - component: {fileID: 1075860022}
   - component: {fileID: 1075860021}
+  - component: {fileID: 1075860024}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -6555,6 +6782,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1075860024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075860019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1098102473
 GameObject:
   m_ObjectHideFlags: 0
@@ -6567,8 +6808,9 @@ GameObject:
   - component: {fileID: 1098102477}
   - component: {fileID: 1098102476}
   - component: {fileID: 1098102475}
+  - component: {fileID: 1098102478}
   m_Layer: 3
-  m_Name: PlatForm (6)
+  m_Name: PlatForm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6861,6 +7103,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1098102478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098102473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1103592570
 GameObject:
   m_ObjectHideFlags: 0
@@ -6873,6 +7129,7 @@ GameObject:
   - component: {fileID: 1103592574}
   - component: {fileID: 1103592573}
   - component: {fileID: 1103592572}
+  - component: {fileID: 1103592575}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -7167,6 +7424,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1103592575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103592570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1149999864
 GameObject:
   m_ObjectHideFlags: 0
@@ -7216,6 +7487,7 @@ GameObject:
   - component: {fileID: 1161522315}
   - component: {fileID: 1161522314}
   - component: {fileID: 1161522313}
+  - component: {fileID: 1161522316}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -7510,6 +7782,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1161522316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161522311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1188735544
 GameObject:
   m_ObjectHideFlags: 0
@@ -7522,6 +7808,7 @@ GameObject:
   - component: {fileID: 1188735548}
   - component: {fileID: 1188735547}
   - component: {fileID: 1188735546}
+  - component: {fileID: 1188735549}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -7816,6 +8103,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1188735549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188735544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1194757287
 GameObject:
   m_ObjectHideFlags: 0
@@ -7828,8 +8129,9 @@ GameObject:
   - component: {fileID: 1194757291}
   - component: {fileID: 1194757290}
   - component: {fileID: 1194757289}
+  - component: {fileID: 1194757292}
   m_Layer: 3
-  m_Name: PlatForm (4)
+  m_Name: PlatForm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8122,6 +8424,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1194757292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194757287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1229553056
 GameObject:
   m_ObjectHideFlags: 0
@@ -8134,6 +8450,7 @@ GameObject:
   - component: {fileID: 1229553060}
   - component: {fileID: 1229553059}
   - component: {fileID: 1229553058}
+  - component: {fileID: 1229553061}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -8428,6 +8745,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1229553061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229553056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1230923256
 GameObject:
   m_ObjectHideFlags: 0
@@ -8440,6 +8771,7 @@ GameObject:
   - component: {fileID: 1230923260}
   - component: {fileID: 1230923259}
   - component: {fileID: 1230923258}
+  - component: {fileID: 1230923261}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -8734,6 +9066,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1230923261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230923256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1236209889
 GameObject:
   m_ObjectHideFlags: 0
@@ -8746,6 +9092,7 @@ GameObject:
   - component: {fileID: 1236209893}
   - component: {fileID: 1236209892}
   - component: {fileID: 1236209891}
+  - component: {fileID: 1236209894}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -9040,6 +9387,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1236209894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236209889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1267249989
 GameObject:
   m_ObjectHideFlags: 0
@@ -9052,6 +9413,7 @@ GameObject:
   - component: {fileID: 1267249993}
   - component: {fileID: 1267249992}
   - component: {fileID: 1267249991}
+  - component: {fileID: 1267249994}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -9346,6 +9708,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1267249994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267249989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1272577124
 GameObject:
   m_ObjectHideFlags: 0
@@ -9356,6 +9732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1272577125}
   - component: {fileID: 1272577126}
+  - component: {fileID: 1272577127}
   m_Layer: 0
   m_Name: Area3
   m_TagString: Untagged
@@ -9431,6 +9808,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
+--- !u!114 &1272577127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272577124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b041ca7497f57c8439b6d7a559e4f120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  area: 2
 --- !u!1 &1362044878
 GameObject:
   m_ObjectHideFlags: 0
@@ -9443,6 +9833,7 @@ GameObject:
   - component: {fileID: 1362044882}
   - component: {fileID: 1362044881}
   - component: {fileID: 1362044880}
+  - component: {fileID: 1362044883}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -9737,6 +10128,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1362044883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362044878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1371556307
 GameObject:
   m_ObjectHideFlags: 0
@@ -9749,6 +10154,7 @@ GameObject:
   - component: {fileID: 1371556311}
   - component: {fileID: 1371556310}
   - component: {fileID: 1371556309}
+  - component: {fileID: 1371556312}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -10043,6 +10449,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1371556312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371556307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1427157700
 GameObject:
   m_ObjectHideFlags: 0
@@ -10103,7 +10523,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.08235294, g: 0.07450981, b: 0.14901961, a: 1}
   m_FlipX: 0
@@ -10142,6 +10562,7 @@ GameObject:
   - component: {fileID: 1430893123}
   - component: {fileID: 1430893122}
   - component: {fileID: 1430893121}
+  - component: {fileID: 1430893124}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -10436,6 +10857,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1430893124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430893119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1465245767
 GameObject:
   m_ObjectHideFlags: 0
@@ -10448,8 +10883,9 @@ GameObject:
   - component: {fileID: 1465245771}
   - component: {fileID: 1465245770}
   - component: {fileID: 1465245769}
+  - component: {fileID: 1465245772}
   m_Layer: 3
-  m_Name: PlatForm (1)
+  m_Name: PlatForm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10742,6 +11178,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1465245772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465245767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1471354245
 GameObject:
   m_ObjectHideFlags: 0
@@ -10802,7 +11252,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.08235294, g: 0.07450981, b: 0.14901961, a: 1}
   m_FlipX: 0
@@ -10916,6 +11366,7 @@ GameObject:
   - component: {fileID: 1610393552}
   - component: {fileID: 1610393551}
   - component: {fileID: 1610393554}
+  - component: {fileID: 1610393555}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10991,7 +11442,7 @@ Transform:
   m_GameObject: {fileID: 1610393550}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -4.45, y: -5.04, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11041,6 +11492,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1610393555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610393550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f132c2cbc629345934ffd8f4a3eb5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5877015653466592707}
+  smoothSpeed: 5
 --- !u!1 &1671241209
 GameObject:
   m_ObjectHideFlags: 0
@@ -11053,6 +11518,7 @@ GameObject:
   - component: {fileID: 1671241213}
   - component: {fileID: 1671241212}
   - component: {fileID: 1671241211}
+  - component: {fileID: 1671241214}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -11347,6 +11813,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1671241214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671241209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1672604845
 GameObject:
   m_ObjectHideFlags: 0
@@ -11357,6 +11837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1672604846}
   - component: {fileID: 1672604847}
+  - component: {fileID: 1672604848}
   m_Layer: 0
   m_Name: Area4
   m_TagString: Untagged
@@ -11432,6 +11913,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
+--- !u!114 &1672604848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672604845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b041ca7497f57c8439b6d7a559e4f120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  area: 3
 --- !u!1 &1683000908
 GameObject:
   m_ObjectHideFlags: 0
@@ -11444,6 +11938,7 @@ GameObject:
   - component: {fileID: 1683000912}
   - component: {fileID: 1683000911}
   - component: {fileID: 1683000910}
+  - component: {fileID: 1683000913}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -11738,6 +12233,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1683000913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683000908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1708879702
 GameObject:
   m_ObjectHideFlags: 0
@@ -11750,6 +12259,7 @@ GameObject:
   - component: {fileID: 1708879706}
   - component: {fileID: 1708879705}
   - component: {fileID: 1708879704}
+  - component: {fileID: 1708879707}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -12044,6 +12554,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1708879707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708879702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1724316674
 GameObject:
   m_ObjectHideFlags: 0
@@ -12056,6 +12580,7 @@ GameObject:
   - component: {fileID: 1724316678}
   - component: {fileID: 1724316677}
   - component: {fileID: 1724316676}
+  - component: {fileID: 1724316679}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -12350,6 +12875,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1724316679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724316674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1804306358
 GameObject:
   m_ObjectHideFlags: 0
@@ -12362,6 +12901,7 @@ GameObject:
   - component: {fileID: 1804306362}
   - component: {fileID: 1804306361}
   - component: {fileID: 1804306360}
+  - component: {fileID: 1804306363}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -12656,6 +13196,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1804306363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804306358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &1870806527
 GameObject:
   m_ObjectHideFlags: 0
@@ -12716,7 +13270,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.08235294, g: 0.07450981, b: 0.14901961, a: 1}
   m_FlipX: 0
@@ -12804,6 +13358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1987197319}
   - component: {fileID: 1987197320}
+  - component: {fileID: 1987197321}
   m_Layer: 0
   m_Name: Area6
   m_TagString: Untagged
@@ -12879,6 +13434,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
+--- !u!114 &1987197321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987197318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b041ca7497f57c8439b6d7a559e4f120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  area: 5
 --- !u!1 &1996041420
 GameObject:
   m_ObjectHideFlags: 0
@@ -12891,6 +13459,7 @@ GameObject:
   - component: {fileID: 1996041424}
   - component: {fileID: 1996041423}
   - component: {fileID: 1996041422}
+  - component: {fileID: 1996041425}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -13185,6 +13754,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1996041425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996041420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &2039965254
 GameObject:
   m_ObjectHideFlags: 0
@@ -13197,6 +13780,7 @@ GameObject:
   - component: {fileID: 2039965258}
   - component: {fileID: 2039965257}
   - component: {fileID: 2039965256}
+  - component: {fileID: 2039965259}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -13491,6 +14075,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &2039965259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039965254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &2043205875
 GameObject:
   m_ObjectHideFlags: 0
@@ -13503,6 +14101,7 @@ GameObject:
   - component: {fileID: 2043205879}
   - component: {fileID: 2043205878}
   - component: {fileID: 2043205877}
+  - component: {fileID: 2043205880}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -13797,6 +14396,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &2043205880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043205875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &2095119922
 GameObject:
   m_ObjectHideFlags: 0
@@ -16849,8 +17462,9 @@ GameObject:
   - component: {fileID: 2096504056}
   - component: {fileID: 2096504055}
   - component: {fileID: 2096504054}
+  - component: {fileID: 2096504057}
   m_Layer: 3
-  m_Name: PlatForm (2)
+  m_Name: PlatForm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17143,6 +17757,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &2096504057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096504052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
 --- !u!1 &2103258029
 GameObject:
   m_ObjectHideFlags: 0
@@ -17153,6 +17781,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2103258030}
   - component: {fileID: 2103258031}
+  - component: {fileID: 2103258032}
   m_Layer: 0
   m_Name: Area5
   m_TagString: Untagged
@@ -17228,6 +17857,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
+--- !u!114 &2103258032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103258029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b041ca7497f57c8439b6d7a559e4f120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  area: 4
 --- !u!1 &2126460094
 GameObject:
   m_ObjectHideFlags: 0
@@ -17240,6 +17882,7 @@ GameObject:
   - component: {fileID: 2126460098}
   - component: {fileID: 2126460097}
   - component: {fileID: 2126460096}
+  - component: {fileID: 2126460099}
   m_Layer: 3
   m_Name: PlatForm
   m_TagString: Untagged
@@ -17534,12 +18177,371 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &2126460099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126460094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8381c6d1add401f9eebb29f984847eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6519698850526901745, guid: 494520a793e48d34e914cf235fb6e6c5, type: 3}
+  maxEnemyCount: 5
+--- !u!61 &877726901498475413
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637058775182758329}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.00009872019}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.28, y: 0.39}
+    newSize: {x: 0.28, y: 0.39}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.2637307, y: 0.37067422}
+  m_EdgeRadius: 0
+--- !u!114 &1067041545442945031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637058775182758329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb805802851d8a84386b9bc5abfdfb02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1224433660462953421
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637058775182758329}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ad70ef592b68f94886ec208bf5d98b6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1637058775182758329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5877015653466592707}
+  - component: {fileID: 2692484259133177873}
+  - component: {fileID: 1224433660462953421}
+  - component: {fileID: 2414030189248361842}
+  - component: {fileID: 877726901498475413}
+  - component: {fileID: 7032560957945105723}
+  - component: {fileID: 1067041545442945031}
+  - component: {fileID: 6887927745986228007}
+  - component: {fileID: 6699945855167207352}
+  - component: {fileID: 2395407493069659146}
+  - component: {fileID: 5249561368487006213}
+  - component: {fileID: 7704894824905979393}
+  - component: {fileID: 2517229581026863555}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2395407493069659146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637058775182758329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f297c8004fba68a429d9f1332128e750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statDataSO: {fileID: 11400000, guid: 91968ee7967c5ba45a1737e9d6a05242, type: 2}
+--- !u!50 &2414030189248361842
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637058775182758329}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 2
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &2517229581026863555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637058775182758329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a58728cbec918e8419604d8419e31a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStat: {fileID: 2395407493069659146}
+  locomotion: {fileID: 6699945855167207352}
+  isBleeding: 0
+  isFractured: 0
+  isPoisoning: 0
+  isBurned: 0
+  bleedingDamage: 0.5
+  fractureMoveSpeedPenalty: 0.7
+  poisoningDamage: 0.5
+  burnDamage: 1
+  burnIntervalMin: 2
+  burnIntervalMax: 5
+--- !u!212 &2692484259133177873
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637058775182758329}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 815424164945274260, guid: f3592454076ceb241840829a50a974f8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.28, y: 0.39}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &5249561368487006213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637058775182758329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ca1bac3ccb8204787b2e86ea46c20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitIgnoreDuration: 0.5
+  hitSlowdownMultiplier: 0.5
+  defaultStunDuration: 1
+  defaultKnockbackForce: 2
+  knockbackDuration: 0.15
+--- !u!4 &5877015653466592707
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637058775182758329}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.71, y: -8.98, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6699945855167207352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637058775182758329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4083daaabf3a3c468099233c025730c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 4
+  jumpForce: 7
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  groundCheckDistance: 0.1
+  groundCheckSize: {x: 0.8, y: 0.1}
+  groundCheckOffset: {x: 0, y: -0.6}
+  maxJumpCount: 2
+  dashSpeed: 10
+  dashDuration: 0.2
+--- !u!114 &6887927745986228007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637058775182758329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695f9992592546146adc56e26e4cbe63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7032560957945105723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637058775182758329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1f4bf817a30bc264aaad587ed7dc5b2b, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: PC
+  m_DefaultActionMap: PlayerActions
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &7704894824905979393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637058775182758329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ae617da4c5dcb40a38ec1d2738fc59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 2395407493069659146}
+  locomotion: {fileID: 6699945855167207352}
+  visionController: {fileID: 96741066}
+  statusManager: {fileID: 2517229581026863555}
+  currentFatigue: 0
+  currentStage: 0
+  fatigueIncreaseRate: 0.5
+  restRecoveryAmount: 50
+  unshadowRecoveryAmount: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1610393553}
   - {fileID: 1895426974}
-  - {fileID: 804782486}
+  - {fileID: 5877015653466592707}
   - {fileID: 96741070}
   - {fileID: 1149999865}
