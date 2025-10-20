@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Script.Manager.Events
 {
-    public class ChangeWeaponEvents : MonoBehaviour
+    public class ChangeWeaponEvent : MonoBehaviour
     {
         private TextMeshProUGUI text;
 

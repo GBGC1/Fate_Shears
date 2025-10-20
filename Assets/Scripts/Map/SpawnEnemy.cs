@@ -1,0 +1,84 @@
+using System.Collections;
+using Script.Manager.Events;
+using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.Tilemaps;
+
+namespace Map
+{
+    public class SpawnEnemy : MonoBehaviour
+    {
+        [SerializeField] private GameObject enemyPrefab;
+        private float spawnIntervalTo = 7;
+        private float spawnIntervalFrom = 10;
+        [SerializeField] private int maxEnemyCount = 5;
+
+        private bool isSpawning = false;
+        private TilemapCollider2D collider2d;
+        private int currentEnemyCount;
+        private Rect cameraRect;
+
+        void Awake()
+        {
+            collider2d = GetComponent<TilemapCollider2D>();
+            currentEnemyCount = 0;
+        }
+
+        void OnEnable()
+        {
+            EventBus.Instance().Subscribe<CameraRectEventData>(OnCameraRect);
+        }
+
+        public void StartSpawnCoroutine()
+        {
+            while (!isSpawning)
+            {
+                isSpawning = true;
+                StartCoroutine(Spawn());
+            }
+        }
+
+        private IEnumerator Spawn()
+        {
+            while (isSpawning)
+            {
+                Vector2 spawnPos = RandomPos();
+
+                if (currentEnemyCount < maxEnemyCount && !cameraRect.Contains(spawnPos))
+                {
+                    SpawnEnemyRandomPosition(spawnPos);
+                }
+
+                yield return new WaitForSeconds(Random.Range(spawnIntervalTo, spawnIntervalFrom));
+            }
+        }
+
+        private void SpawnEnemyRandomPosition(Vector2 spawnPos)
+        {
+            GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+            enemy.transform.parent = transform;
+            enemy.name = enemy.name.Substring(0, "Enemy".Length);
+            currentEnemyCount++;
+        }
+
+        private Vector2 RandomPos()
+        {
+            Bounds bounds = collider2d.bounds;
+            float locationX = Random.Range(bounds.min.x + 1, bounds.max.x - 1);
+            float locationY = bounds.max.y + 1;
+
+            return new Vector2(locationX, locationY);
+        }
+
+        private void OnCameraRect(CameraRectEventData @event)
+        {
+            cameraRect = @event.cameraRect;
+        }
+
+
+        public void StopSpawn()
+        {
+            isSpawning = false;
+        }
+    }
+}
