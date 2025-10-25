@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UserAtk
   - Platform
+  - SafeZone
   layers:
   - Default
   - TransparentFX
