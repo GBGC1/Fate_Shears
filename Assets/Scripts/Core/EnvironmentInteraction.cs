@@ -6,12 +6,20 @@ using UnityEngine;
 /// </summary>
 public class EnvironmentInteraction : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private StatManager playerStat;
     [SerializeField] private FatigueSystem fatigue;
+    [SerializeField] private StatusEffectManager playerStatus;
+
+    [Header("Hazard Terrain Settings")]
+    // 위험 지형에 닿을 경우 입는 데미지
+    [SerializeField] private float hazardDamage = 5;
+    private const int LAVA_LAYER = 7;   // 용암 지대 레이어 번호
+    private const int SWAMP_LAYER = 8;  // 독성 늪 지대 레이어 번호
 
     private void Start()
     {
-        if (playerStat == null || fatigue == null)
+        if (playerStat == null || fatigue == null || playerStatus == null)
         {
             Debug.LogError("EnvironmentInteraction.cs : 할당되지 않은 필수 컴포넌트가 있습니다.");
         }
@@ -24,6 +32,20 @@ public class EnvironmentInteraction : MonoBehaviour
         {
             Debug.Log("세이프존 도달!");
             fatigue.RestAtSafeZone();
+        }
+
+        // 용암 지대에 닿을 경우 화상 상태로 전환
+        if (other.gameObject.layer == LAVA_LAYER)
+        {
+            playerStatus.ApplyBurn();
+            playerStat.TakeDamage(hazardDamage);
+        }
+        
+        // 독성 늪 지대에 닿을 경우 중독 상태로 전환
+        if (other.gameObject.layer == SWAMP_LAYER)
+        {
+            playerStatus.ApplyPoisoning();
+            playerStat.TakeDamage(hazardDamage);
         }
     }
 }
