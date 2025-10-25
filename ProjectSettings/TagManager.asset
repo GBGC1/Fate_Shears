@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UserAtk
   - Platform
+  - SafeZone
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - Water
   - UI
   - PlayerDetection
-  - 
-  - 
+  - Lava
+  - Swamp
   - 
   - 
   - 
