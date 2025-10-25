@@ -14,6 +14,8 @@ public class EnvironmentInteraction : MonoBehaviour
     [Header("Hazard Terrain Settings")]
     // 위험 지형에 닿을 경우 입는 데미지
     [SerializeField] private float hazardDamage = 5;
+    // 플레이어가 위험 지형 면역 상태인지 확인
+    [SerializeField] private bool isImmuneToHazardTerrain = false;
     private const int LAVA_LAYER = 7;   // 용암 지대 레이어 번호
     private const int SWAMP_LAYER = 8;  // 독성 늪 지대 레이어 번호
 
@@ -33,6 +35,9 @@ public class EnvironmentInteraction : MonoBehaviour
             Debug.Log("세이프존 도달!");
             fatigue.RestAtSafeZone();
         }
+        
+        // 위험 지형 면역 상태인 경우 데미지 무시
+        if (isImmuneToHazardTerrain == true) return;
 
         // 용암 지대에 닿을 경우 화상 상태로 전환
         if (other.gameObject.layer == LAVA_LAYER)
