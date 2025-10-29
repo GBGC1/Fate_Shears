@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using Unity.VisualScripting;
 
 /// <summary>
 /// 플레이어의 이동, 점프, 대시 입력을 감지하고 상태를 관리하는 클래스  
@@ -19,6 +20,8 @@ public class PlayerInput : MonoBehaviour
     // 능력치 창 토글을 위한 새 이벤트 추가
     public event Action OnToggleAbilityWindowEvent;
     public event Action OnToggleShadowEvent;
+    // 인벤토리 이벤트 선언
+    public event Action OnInventoryEvent;
 
     #region Player Input Properties
     public Vector2 MoveVector => moveVector;
@@ -72,12 +75,20 @@ public class PlayerInput : MonoBehaviour
             OnToggleAbilityWindowEvent?.Invoke();
         }
     }
-    
+
     void OnToggleShadow(InputValue value)
     {
         if (value.isPressed)
         {
             OnToggleShadowEvent?.Invoke();
+        }
+    }
+    
+    void OnInventory(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            OnInventoryEvent?.Invoke();
         }
     }
     

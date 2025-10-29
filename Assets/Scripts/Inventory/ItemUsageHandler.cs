@@ -6,6 +6,8 @@ using UnityEngine;
 /// </summary>
 public class ItemUsageHandler : MonoBehaviour
 {
+    public static ItemUsageHandler Instance { get; private set; }
+
     [Header("References")]
     [SerializeField] private StatManager playerStat;
     [SerializeField] private StatusEffectManager status;
@@ -15,6 +17,10 @@ public class ItemUsageHandler : MonoBehaviour
 
     private void Awake()
     {
+        // 싱글톤 초기화
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+        
         if (playerStat == null || status == null)
         {
             Debug.LogError("ItemUsageHandler : 필수 컴포넌트가 할당되지 않았습니다.");

@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 7
   itemName: Wing Boots
   type: 6
-  icon: {fileID: 2812464171319830566, guid: 9095562f9d1094643b217a7205a9de34, type: 3}
+  icon: {fileID: 21300000, guid: 9095562f9d1094643b217a7205a9de34, type: 3}
