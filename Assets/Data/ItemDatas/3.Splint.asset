@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 3
   itemName: Splint
   type: 3
-  icon: {fileID: 9216451498874113711, guid: e1bef0e15cdf0ba448dfae3a0cb5cedb, type: 3}
+  icon: {fileID: 21300000, guid: e1bef0e15cdf0ba448dfae3a0cb5cedb, type: 3}
