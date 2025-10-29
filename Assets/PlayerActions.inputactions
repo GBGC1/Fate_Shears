@@ -86,7 +86,7 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
+                },{
                     "name": "Inventory",
                     "type": "Button",
                     "id": "0fd92ac0-d605-4ef5-8e58-e56397d03880",
@@ -217,7 +217,7 @@
                     "action": "ChangeTwinSwordForm",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                },{
                     "name": "",
                     "id": "33467545-94b5-4d49-8f3b-ad8f8b21fbd4",
                     "path": "<Keyboard>/i",
