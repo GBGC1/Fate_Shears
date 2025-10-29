@@ -2,8 +2,8 @@
 {
     public enum WeaponType
     {
-        Shears,
-        TwoSword,
-        GreatSword
+        Shears = 0,
+        TwinSword = 1,
+        GreatSword = 2
     }
 }

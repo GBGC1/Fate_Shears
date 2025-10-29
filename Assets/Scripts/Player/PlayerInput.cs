@@ -1,3 +1,4 @@
+using Weapon;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
@@ -23,6 +24,9 @@ public class PlayerInput : MonoBehaviour
     // 인벤토리 이벤트 선언
     public event Action OnInventoryEvent;
 
+    public event Action OnAttackEvent;
+    public event Action<WeaponType> OnChangeFormEvent;
+    
     #region Player Input Properties
     public Vector2 MoveVector => moveVector;
     #endregion
@@ -81,6 +85,40 @@ public class PlayerInput : MonoBehaviour
         if (value.isPressed)
         {
             OnToggleShadowEvent?.Invoke();
+        }
+    }
+
+    void OnAttack(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            OnAttackEvent?.Invoke();
+        }
+    }
+
+    void OnChangeShearsForm(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            OnChangeFormEvent?.Invoke(WeaponType.Shears);
+        }
+    }
+
+    void OnChangeTwinSwordForm(InputValue value)
+    {
+        
+        if (value.isPressed)
+        {
+            OnChangeFormEvent?.Invoke(WeaponType.TwinSword);
+        }
+    }
+
+    void OnChangeGreatSwordForm(InputValue value)
+    {
+        
+        if (value.isPressed)
+        {
+            OnChangeFormEvent?.Invoke(WeaponType.GreatSword);
         }
     }
     

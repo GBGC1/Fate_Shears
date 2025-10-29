@@ -52,6 +52,41 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "e9d69804-69d7-4743-beb0-2e23978008ed",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ChangeShearsForm",
+                    "type": "Button",
+                    "id": "5e5effb8-20b7-469c-913c-6feaf57f7ff6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ChangeGreatSwordForm",
+                    "type": "Button",
+                    "id": "9389d42f-37b0-4206-b4dd-eec0f178f8f7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ChangeTwinSwordForm",
+                    "type": "Button",
+                    "id": "ecc256c4-43ee-4833-b95d-9f36460f6334",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
                     "name": "Inventory",
                     "type": "Button",
                     "id": "0fd92ac0-d605-4ef5-8e58-e56397d03880",
@@ -140,6 +175,49 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "5c7f38d8-4263-4b55-8bfc-9a7981d10f0b",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "16a07f15-2de0-48bd-9ab7-6dd1571b670e",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeShearsForm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d6e72a57-9cc4-4462-a330-847168c735f8",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeGreatSwordForm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3c3883b8-e690-49ec-aa51-bff78f9b5038",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeTwinSwordForm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
                     "name": "",
                     "id": "33467545-94b5-4d49-8f3b-ad8f8b21fbd4",
                     "path": "<Keyboard>/i",
