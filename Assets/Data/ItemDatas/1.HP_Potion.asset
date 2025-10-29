@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499d0a8075858d448a032bf4d3abb770, type: 3}
+  m_Name: 1.HP_Potion
+  m_EditorClassIdentifier: 
+  id: 1
+  itemName: HP Potion
+  type: 1
+  icon: {fileID: 7405402751001306309, guid: 8a9e81b32e454a444b382f7c8418f548, type: 3}
