@@ -1,12 +1,13 @@
 using System;
+using Weapon;
 
 namespace Script.Manager.Events
 {
     public class ChangeWeaponEventData
     {
-        public string Type { get; private set; }
+        public WeaponType Type { get; private set; }
 
-        public ChangeWeaponEventData(String type)
+        public ChangeWeaponEventData(WeaponType type)
         {
             Type = type;
         }

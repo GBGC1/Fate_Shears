@@ -9,7 +9,7 @@ namespace Script.Manager.Events
 
         void Awake()
         {
-            text = GetComponentInChildren<TextMeshProUGUI>();
+            text = GetComponent<TextMeshProUGUI>();
         }
 
         void Start()
@@ -19,7 +19,7 @@ namespace Script.Manager.Events
 
         private void ChangeForm(ChangeWeaponEventData @event)
         {
-            text.text = @event.Type;
+            text.text = @event.Type.ToString();
         }
     }
 }

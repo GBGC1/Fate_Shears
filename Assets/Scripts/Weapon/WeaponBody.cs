@@ -1,22 +1,38 @@
 using UnityEngine;
 using Weapon;
 
-public class WeaponBody : MonoBehaviour
+namespace Weapon
 {
-    public WeaponStats.WeaponStat Stat { get; private set; }
-    
-    void Start()
+    public class WeaponBody : MonoBehaviour
     {
-        ChangeStat(WeaponType.Shears);
-    }
+        public static WeaponType CurrentForm { get; private set; } = WeaponType.Shears;
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
+        public static WeaponStats.WeaponStat Stat { get; private set; }
 
-    public void ChangeStat(WeaponType type)
-    {
-        Stat = WeaponStats.GetWeaponStat(type);
+        void Awake()
+        {
+            WeaponStats.LoadStats();
+        }
+        
+        void Start()
+        {
+            LoadStat();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+        }
+
+        public static void ChangeForm(WeaponType type)
+        {
+            CurrentForm = type;
+            LoadStat();
+        }
+        
+        private static void LoadStat()
+        {
+            Stat = WeaponStats.GetWeaponStat(CurrentForm);
+        }
     }
 }

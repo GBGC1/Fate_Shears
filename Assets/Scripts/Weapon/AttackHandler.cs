@@ -1,26 +1,35 @@
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEditor.Searcher;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Script.Manager.Events;
 
+namespace Weapon{
 public class AttackHandler : MonoBehaviour
 {
-    private InputAttackKey attackKey;
+    private PlayerInput playerInput;
+    //private InputAttackKey attackKey;
     private Animator animator;
     
     void Start()
     {
+        playerInput = GetComponentInParent<PlayerInput>();
+        playerInput.OnAttackEvent += BasicAttack;
+        playerInput.OnChangeFormEvent += ChangeForm;
         animator = GetComponent<Animator>();
+        /*
         attackKey = new InputAttackKey();
         attackKey.Attack.Enable();
-        attackKey.Attack.BasicAttack.performed += BasicAttack;
+        attackKey.Attack.BasicAttack.performed += BasicAttack;*/
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ChangeForm(WeaponType type)
     {
+        WeaponBody.ChangeForm(type);
+        EventBus.Instance().Publish(new ChangeWeaponEventData(type));
     }
 
-    private void BasicAttack(InputAction.CallbackContext ctx)
+    private void BasicAttack()
     {
         StartBasicAttackAnimation();
         Debug.Log("InputBasicAttack");
@@ -31,6 +40,7 @@ public class AttackHandler : MonoBehaviour
         if (!animator.GetBool("Atk"))
         {
             animator.SetBool("Atk", true);
+            animator.SetInteger("WeaponForm", (int)WeaponBody.CurrentForm);
         }
         else
         {
@@ -47,4 +57,6 @@ public class AttackHandler : MonoBehaviour
     {
         animator.SetBool("Atk", false);
     }
+}
+
 }
