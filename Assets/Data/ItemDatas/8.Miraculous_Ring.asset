@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 8
   itemName: Miraculous Ring
   type: 6
-  icon: {fileID: -6992818521867156531, guid: 38126c9e6202cc94f89bfe0642f55b01, type: 3}
+  icon: {fileID: 21300000, guid: 38126c9e6202cc94f89bfe0642f55b01, type: 3}

@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 2
   itemName: Bandage
   type: 2
-  icon: {fileID: -344713574537320093, guid: 08a181b771504e549a56b14b10b978ac, type: 3}
+  icon: {fileID: 21300000, guid: 08a181b771504e549a56b14b10b978ac, type: 3}
