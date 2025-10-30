@@ -1,113 +1,208 @@
 using UnityEngine;
-using UnityEngine.InputSystem; // Input System 사용을 위해 추가
+using UnityEngine.InputSystem;
+using System;
 
 /// <summary>
 /// 플레이어의 그림자 오브젝트와 그림자 모드(C키)를 제어합니다.
-/// 점프 시 그림자를 숨기고, C키로 그림자 모드를 토글합니다.
-/// PlayerInput 이벤트를 구독하고 PlayerLocomotion의 Grounded 상태를 참조합니다.
+/// C키로 버프/디버프(공격력, 이속, 체력)를 토글하고,
+/// 플레이어의 물리 레이어를 변경하여 환경 기믹을 통과(무시)할 수 있는 상태를 제공합니다.
+/// StatManager의 보정치 시스템(IStatSource)을 구현하여 작동합니다.
 /// </summary>
-[RequireComponent(typeof(SpriteRenderer), typeof(PlayerLocomotion), typeof(PlayerInput))]
-public class PlayerShadowController : MonoBehaviour
+[RequireComponent(typeof(SpriteRenderer), typeof(PlayerLocomotion), typeof(StatManager))]
+public class PlayerShadowController : MonoBehaviour, IStatSource
 {
     [Header("오브젝트 연결")]
     [Tooltip("플레이어의 자식 오브젝트인 Shadow를 연결해주세요.")]
     [SerializeField] private GameObject shadowObject;
 
+    [Header("섀도우 모드 버프/디버프 수치")]
+    [Tooltip("공격력 증가량 (예: 0.2f = 20% 증가)")]
+    [SerializeField] private float attackPowerBonus = 0.2f;
+    [Tooltip("이동 속도 배율 (예: 1.3f = 30% 증가)")]
+    [SerializeField] private float moveSpeedMultiplierBonus = 1.3f;
+    [Tooltip("최대 체력 감소량 (예: -0.5f = 50% 감소)")]
+    [SerializeField] private float maxHpDebuff = -0.5f;
+
+    [Header("레이어 설정 (Layer Settings)")]
+    [Tooltip("플레이어의 기본 레이어 이름 (예: Default)")]
+    [SerializeField] private string playerLayerName = "Default"; // "Player"에서 "Default"로 변경
+    [Tooltip("섀도우 모드일 때 사용할 레이어 이름 (예: PlayerShadow)")]
+    [SerializeField] private string playerShadowLayerName = "PlayerShadow";
+
+    // 컴포넌트 참조
     private SpriteRenderer playerSpriteRenderer;
     private PlayerLocomotion playerLocomotion;
-    private PlayerInput playerInput; // PlayerInput 참조 추가
+    private PlayerInput playerInput;
+    private StatManager statManager;
 
+    // 내부 상태 변수
     private Color originalPlayerColor;
-    private bool isShadowModeActive = false; // C키로 활성화되는 그림자 모드 상태
+    private bool isShadowModeActive = false;
+
+    // 스탯 보정치 객체
+    private StatModifier attackBuff;
+    private StatModifier maxHpDebuffModifier;
+    
+    // 레이어 인덱스 저장
+    private int playerLayer;
+    private int playerShadowLayer;
+
+    #region IStatSource implementation
+    public int SourceID => GetInstanceID();
+    #endregion
+
+    public bool IsShadowModeActive => isShadowModeActive;
 
     private void Awake()
     {
-        // 필요한 컴포넌트들을 가져옵니다.
+        // 1. 모든 필수 컴포넌트를 가져옵니다.
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
         playerLocomotion = GetComponent<PlayerLocomotion>();
-        playerInput = GetComponent<PlayerInput>(); // PlayerInput 컴포넌트 가져오기
+        playerInput = GetComponent<PlayerInput>();
+        statManager = GetComponent<StatManager>();
 
+        // 2. 오브젝트 연결 확인
         if (shadowObject == null)
         {
             Debug.LogError("Shadow 오브젝트가 연결되지 않았습니다! 인스펙터 창에서 연결해주세요.", this);
-            enabled = false;
-            return;
+            enabled = false; return;
         }
-        if (playerInput == null) // PlayerInput 확인 추가
+        if (playerInput == null)
         {
-             Debug.LogError("PlayerInput 컴포넌트를 찾을 수 없습니다!", this);
-            enabled = false;
-            return;
+            Debug.LogError("PlayerInput 컴포넌트를 찾을 수 없습니다!", this);
+            enabled = false; return;
+        }
+        
+        // 3. 레이어 이름(string)을 레이어 인덱스(int)로 변환하여 저장
+        playerLayer = LayerMask.NameToLayer(playerLayerName);
+        playerShadowLayer = LayerMask.NameToLayer(playerShadowLayerName);
+
+        if (playerLayer == -1) // playerLayerName이 "Default"인 경우 0을 반환하므로 -1이 아님.
+        {
+            // "Default" 레이어는 항상 인덱스 0을 반환하며 -1이 될 수 없습니다. 
+            // 혹시 "Default"가 아닌 다른 잘못된 이름이 인스펙터에 입력되었을 경우를 대비한 방어 코드입니다.
+            if (playerLayerName != "Default") {
+                Debug.LogError($"'{playerLayerName}' 레이어를 찾을 수 없습니다. Project Settings > Tags and Layers에서 레이어 이름을 확인하세요.", this);
+                enabled = false; return;
+            }
+        }
+        if (playerShadowLayer == -1)
+        {
+            Debug.LogError($"'PlayerShadow' 레이어를 찾을 수 없습니다. Project Settings > Tags and Layers에서 '{playerShadowLayerName}' 레이어를 생성했는지 확인하세요.", this);
+            enabled = false; return;
         }
 
-        // 플레이어의 원래 색상을 저장해둡니다.
+        // 4. 플레이어 원래 색상 저장
         originalPlayerColor = playerSpriteRenderer.color;
 
-        // PlayerInput의 그림자 토글 이벤트 구독
+        // 5. 스탯 보정치 객체 생성
+        attackBuff = new StatModifier(attackPowerBonus, StatModType.Multiplicative, this);
+        maxHpDebuffModifier = new StatModifier(maxHpDebuff, StatModType.Multiplicative, this);
+
+        // 6. PlayerInput의 'c' 키 이벤트 구독
         playerInput.OnToggleShadowEvent += HandleToggleShadow;
     }
 
-     private void OnDestroy()
+    private void OnDestroy()
     {
-        // 이벤트 구독 해지
         if (playerInput != null)
         {
             playerInput.OnToggleShadowEvent -= HandleToggleShadow;
         }
+        if (isShadowModeActive && statManager != null)
+        {
+            RemoveShadowModeBuffs();
+        }
     }
 
-
-    private void Update() // FixedUpdate 대신 Update 사용 권장 (매 프레임 시각적 업데이트)
+    private void Update()
     {
-        // 점프 시 그림자 처리
         HandleShadowOnJump();
     }
 
     /// <summary>
-    /// PlayerInput의 OnToggleShadowEvent 신호를 받아 그림자 모드를 토글합니다.
+    /// 'c' 키 입력 신호를 받아 섀도우 모드를 토글합니다.
     /// </summary>
     private void HandleToggleShadow()
     {
-        isShadowModeActive = !isShadowModeActive; // 그림자 모드 상태를 뒤집습니다.
+        isShadowModeActive = !isShadowModeActive; // 모드 상태 반전
+
+        // --- 레이어 변경 로직 ---
+        if (isShadowModeActive)
+        {
+            gameObject.layer = playerShadowLayer;
+        }
+        else
+        {
+            gameObject.layer = playerLayer;
+        }
+        // -------------------------
+
         UpdateShadowVisuals();
+        UpdateShadowModeStats();
     }
 
     /// <summary>
-    /// 그림자 모드 상태에 따라 플레이어와 그림자의 모습을 업데이트합니다.
+    /// 섀도우 모드 상태에 따라 시각적 효과(색상, 그림자)를 업데이트합니다.
     /// </summary>
     private void UpdateShadowVisuals()
     {
         if (isShadowModeActive)
         {
-            // 그림자 모드 활성화: 그림자 끄고, 플레이어 검게
             shadowObject.SetActive(false);
             playerSpriteRenderer.color = Color.black;
         }
         else
         {
-            // 그림자 모드 비활성화: 플레이어 색상 원래대로, 그림자는 지면 상태에 따라 결정
             playerSpriteRenderer.color = originalPlayerColor;
-            HandleShadowOnJump(); // 점프 상태에 맞게 그림자를 즉시 업데이트
+            HandleShadowOnJump(); 
         }
     }
 
     /// <summary>
-    /// 플레이어의 지면 상태에 따라 그림자를 켜고 끕니다.
-    /// (그림자 모드가 아닐 때만 작동)
+    /// 섀도우 모드 상태에 따라 버프/디버프를 적용하거나 제거합니다.
     /// </summary>
-    private void HandleShadowOnJump()
+    private void UpdateShadowModeStats()
     {
-        // C키로 그림자 모드가 켜져있다면, 이 로직은 무시됩니다.
-        if (isShadowModeActive) return;
-
-        // PlayerLocomotion의 Grounded 프로퍼티를 사용하여 지면 상태를 확인합니다.
-        if (playerLocomotion.Grounded)
+        if (isShadowModeActive)
         {
-            shadowObject.SetActive(true); // 땅에 있으면 그림자 켜기
+            statManager.AddModifier(StatType.AttackPower, attackBuff);
+            statManager.AddModifier(StatType.MaxHP, maxHpDebuffModifier);
+            playerLocomotion.MoveSpeedMultiplier = moveSpeedMultiplierBonus;
+            Debug.Log("섀도우 모드 활성화: 기믹 통과, 스탯 변경");
         }
         else
         {
-            shadowObject.SetActive(false); // 공중에 있으면 그림자 끄기
+            RemoveShadowModeBuffs();
+            Debug.Log("섀도우 모드 비활성화: 모든 스탯/레이어 원상 복구");
+        }
+    }
+
+    /// <summary>
+    /// StatManager와 PlayerLocomotion에서 모든 섀도우 모드 보정치를 제거합니다.
+    /// </summary>
+    private void RemoveShadowModeBuffs()
+    {
+        statManager.RemoveModifier(StatType.AttackPower, this);
+        statManager.RemoveModifier(StatType.MaxHP, this);
+        playerLocomotion.MoveSpeedMultiplier = 1f; 
+    }
+
+    /// <summary>
+    /// 플레이어의 지면 상태에 따라 시각적 그림자를 켜고 끕니다. (섀도우 모드가 아닐 때만)
+    /// </summary>
+    private void HandleShadowOnJump()
+    {
+        if (isShadowModeActive) return;
+
+        if (playerLocomotion.Grounded)
+        {
+            shadowObject.SetActive(true);
+        }
+        else
+        {
+            shadowObject.SetActive(false);
         }
     }
 }
+

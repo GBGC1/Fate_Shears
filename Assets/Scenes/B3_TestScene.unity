@@ -14841,6 +14841,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowObject: {fileID: 1376371021}
+  attackPowerBonus: 0.2
+  moveSpeedMultiplierBonus: 1.35
+  maxHpDebuff: -0.5
+  playerLayerName: Default
+  playerShadowLayerName: PlayerShadow
 --- !u!1 &1456910944
 GameObject:
   m_ObjectHideFlags: 0
@@ -15434,7 +15439,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.0666667, y: 1.0666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -15524,7 +15529,7 @@ GameObject:
   - component: {fileID: 2049133237}
   - component: {fileID: 2049133236}
   - component: {fileID: 2049133235}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Spikes
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -15629,7 +15634,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
