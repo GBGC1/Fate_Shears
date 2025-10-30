@@ -18,7 +18,7 @@ public class EnemyStateController : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         currentState?.Update();
     }
@@ -38,7 +38,7 @@ public class EnemyStateController : MonoBehaviour
     {
         currentState.CanChangeState = true;
     }
-    
+
     public IEnumerator EnemyAppearance()
     {
         Rigidbody.gravityScale = 10;
@@ -72,5 +72,4 @@ public class EnemyStateController : MonoBehaviour
 
         return hit.collider != null;
     }
-
 }
