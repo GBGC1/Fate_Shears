@@ -7,6 +7,7 @@ TagManager:
   - UserAtk
   - Platform
   - SafeZone
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Lava
   - Swamp
   - Enemy
-  - 
+  - PlayerShadow
   - 
   - 
   - 
