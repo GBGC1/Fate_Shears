@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Map
 {
+    [RequireComponent(typeof(Collider2D))]
     public class AreaController : MonoBehaviour
     {
         private enum AreaEnum
@@ -29,7 +30,7 @@ namespace Map
         {
             if (area == inPlayerArea)
             {
-                StartSpawnEnemies();
+                //StartSpawnEnemies();
             }
         }
 
@@ -38,6 +39,7 @@ namespace Map
             if (other.CompareTag("Player"))
             {
                 inPlayerArea = area;
+                StartSpawnEnemies();
                 Debug.Log(inPlayerArea);
             }
         }
@@ -52,6 +54,7 @@ namespace Map
 
         private void StartSpawnEnemies()
         {
+            Debug.Log("StartSpawnEnemies");
             foreach(SpawnEnemy spawner in GetComponentsInChildren<SpawnEnemy>())
             {
                 spawner.StartSpawnCoroutine();

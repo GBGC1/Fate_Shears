@@ -37,7 +37,7 @@ namespace Script.Enemy
 
         private void MoveRandomPos()
         {
-            if (Vector2.Distance(controller.transform.position, target) < 1)
+            if (Vector2.Distance(controller.transform.position, target) < 1f)
             {
                 controller.CanChangeState();
                 controller.ChangeState(new EnemyStateIdle(controller));

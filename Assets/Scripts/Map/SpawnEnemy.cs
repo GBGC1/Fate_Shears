@@ -14,13 +14,13 @@ namespace Map
         [SerializeField] private int maxEnemyCount = 5;
 
         private bool isSpawning = false;
-        private TilemapCollider2D collider2d;
+        private Collider2D collider2d;
         private int currentEnemyCount;
         private Rect cameraRect;
 
         void Awake()
         {
-            collider2d = GetComponent<TilemapCollider2D>();
+            collider2d = GetComponent<Collider2D>();
             currentEnemyCount = 0;
         }
 
