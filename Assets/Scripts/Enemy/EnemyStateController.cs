@@ -7,7 +7,7 @@ using UnityEngine;
 public class EnemyStateController : MonoBehaviour
 {
     public BaseEnemyFunction Function { get; private set; }
-    private EnemyStateBase currentState;
+    protected EnemyStateBase currentState;
     public EnemyStateBase NextState;
 
     public Rigidbody2D Rigidbody { get; private set; }
