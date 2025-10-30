@@ -34,11 +34,11 @@ namespace Map
             while (!isSpawning)
             {
                 isSpawning = true;
-                StartCoroutine(Spawn());
+                StartCoroutine(TrySpawn());
             }
         }
 
-        private IEnumerator Spawn()
+        private IEnumerator TrySpawn()
         {
             while (isSpawning)
             {
@@ -46,22 +46,22 @@ namespace Map
 
                 if (currentEnemyCount < maxEnemyCount && !cameraRect.Contains(spawnPos))
                 {
-                    SpawnEnemyRandomPosition(spawnPos);
+                    Spawn(spawnPos);
                 }
 
                 yield return new WaitForSeconds(Random.Range(spawnIntervalTo, spawnIntervalFrom));
             }
         }
 
-        private void SpawnEnemyRandomPosition(Vector2 spawnPos)
+        private void Spawn(Vector2 spawnPos)
         {
-            GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-            enemy.transform.parent = transform;
+            GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity, transform);
             enemy.name = enemy.name.Substring(0, "Enemy".Length);
+            StartCoroutine(enemy.GetComponentInChildren<EnemyStateController>().EnemyAppearance());
             currentEnemyCount++;
         }
 
-        private Vector2 RandomPos()
+        public Vector2 RandomPos()
         {
             Bounds bounds = collider2d.bounds;
             float locationX = Random.Range(bounds.min.x + 1, bounds.max.x - 1);
