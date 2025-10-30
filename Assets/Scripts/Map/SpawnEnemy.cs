@@ -14,13 +14,13 @@ namespace Map
         [SerializeField] private int maxEnemyCount = 5;
 
         private bool isSpawning = false;
-        private TilemapCollider2D collider2d;
+        private Collider2D collider2d;
         private int currentEnemyCount;
         private Rect cameraRect;
 
         void Awake()
         {
-            collider2d = GetComponent<TilemapCollider2D>();
+            collider2d = GetComponent<Collider2D>();
             currentEnemyCount = 0;
         }
 
@@ -34,36 +34,37 @@ namespace Map
             while (!isSpawning)
             {
                 isSpawning = true;
-                StartCoroutine(Spawn());
+                StartCoroutine(TrySpawn());
             }
         }
 
-        private IEnumerator Spawn()
+        private IEnumerator TrySpawn()
         {
             while (isSpawning)
             {
                 Vector2 spawnPos = RandomPos();
-
+                Debug.Log(spawnPos);
                 if (currentEnemyCount < maxEnemyCount && !cameraRect.Contains(spawnPos))
                 {
-                    SpawnEnemyRandomPosition(spawnPos);
+                    Spawn(spawnPos);
                 }
 
                 yield return new WaitForSeconds(Random.Range(spawnIntervalTo, spawnIntervalFrom));
             }
         }
 
-        private void SpawnEnemyRandomPosition(Vector2 spawnPos)
+        private void Spawn(Vector2 spawnPos)
         {
-            GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-            enemy.transform.parent = transform;
+            GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity, transform);
             enemy.name = enemy.name.Substring(0, "Enemy".Length);
+            StartCoroutine(enemy.GetComponent<EnemyStateController>().EnemyAppearance());
             currentEnemyCount++;
         }
 
-        private Vector2 RandomPos()
+        public Vector2 RandomPos()
         {
             Bounds bounds = collider2d.bounds;
+            Debug.Log(bounds.min + " " + bounds.max);
             float locationX = Random.Range(bounds.min.x + 1, bounds.max.x - 1);
             float locationY = bounds.max.y + 1;
 

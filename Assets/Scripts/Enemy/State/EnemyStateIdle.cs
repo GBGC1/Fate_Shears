@@ -22,6 +22,7 @@ namespace Script.Enemy
             timer += Time.deltaTime;
             if (timer >= idleTime)
             {
+                controller.CanChangeState();
                 if (controller.NextState != null)
                 {
                     controller.ChangeState(controller.NextState);
