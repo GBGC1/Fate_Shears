@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 9
   itemName: Boss Room Key
   type: 6
-  icon: {fileID: 7439685195765847799, guid: a5a46f7ed5217324aab4930a363b8a4c, type: 3}
+  icon: {fileID: 21300000, guid: a5a46f7ed5217324aab4930a363b8a4c, type: 3}
