@@ -1,0 +1,464 @@
+fileFormatVersion: 2
+guid: 43ba7f284403694438f81a4da43b7a84
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -252343562717082310
+    second: ATTACK_0
+  - first:
+      213: -210908623516531236
+    second: ATTACK_1
+  - first:
+      213: -1884070897103218386
+    second: ATTACK_2
+  - first:
+      213: -5421470884539877244
+    second: ATTACK_3
+  - first:
+      213: -637045071952103482
+    second: ATTACK_4
+  - first:
+      213: -8222471432525534737
+    second: ATTACK_5
+  - first:
+      213: -5060464365741366859
+    second: ATTACK_6
+  - first:
+      213: 2732036489171911614
+    second: ATTACK_7
+  - first:
+      213: -4115261504728875612
+    second: ATTACK_8
+  - first:
+      213: 3802779199635122695
+    second: ATTACK_9
+  - first:
+      213: 4098611991708678332
+    second: ATTACK_10
+  - first:
+      213: -715981269168923527
+    second: ATTACK_11
+  - first:
+      213: -6464717584006797268
+    second: ATTACK_12
+  - first:
+      213: 5412541418613530657
+    second: ATTACK_13
+  - first:
+      213: 8157344411780354830
+    second: ATTACK_14
+  - first:
+      213: 4766081933703519410
+    second: ATTACK_15
+  - first:
+      213: -1102707531810563326
+    second: ATTACK_16
+  - first:
+      213: -7070777676068694463
+    second: ATTACK_17
+  - first:
+      213: -6924528091345660463
+    second: ATTACK_18
+  - first:
+      213: 7339010264769376259
+    second: ATTACK_19
+  - first:
+      213: 4202851328140694329
+    second: ATTACK_20
+  - first:
+      213: 2209380930540116855
+    second: ATTACK_21
+  - first:
+      213: 1858361659013190448
+    second: ATTACK_22
+  - first:
+      213: -1224682048114577774
+    second: ATTACK_23
+  - first:
+      213: 5211432423859909184
+    second: ATTACK_24
+  - first:
+      213: 1265700878915256991
+    second: ATTACK_25
+  - first:
+      213: -4341458810375883725
+    second: ATTACK_26
+  - first:
+      213: 5782340834869263185
+    second: ATTACK_27
+  - first:
+      213: 6635238792728565440
+    second: ATTACK_28
+  - first:
+      213: -5264109386108214878
+    second: ATTACK_29
+  - first:
+      213: -8679531199539500335
+    second: ATTACK_30
+  - first:
+      213: 632755223347832078
+    second: ATTACK_31
+  - first:
+      213: -589870060693774420
+    second: ATTACK_32
+  - first:
+      213: -5292286569683824560
+    second: ATTACK_33
+  - first:
+      213: -169206759032396675
+    second: ATTACK_34
+  - first:
+      213: 2614370530306565378
+    second: ATTACK_35
+  - first:
+      213: 5410391904466468119
+    second: ATTACK_36
+  - first:
+      213: -4746735171352635701
+    second: ATTACK_37
+  - first:
+      213: 8387409360196435672
+    second: ATTACK_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SurveillantAttack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 145
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e756c0d35f3a11747b71c0483957621b
+      internalID: -544846381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurveillantAttack_1
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 0
+        width: 145
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d94a7dd2f7b213649a63ae5062e2fcba
+      internalID: -2086808803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurveillantAttack_2
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 0
+        width: 145
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 164152747454e1f4db235378ed8b3b7c
+      internalID: 1774148685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurveillantAttack_3
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 0
+        width: 145
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a16e76f272e334a839bd7c1f5e0db5
+      internalID: -123629021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurveillantAttack_4
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 0
+        width: 145
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8672a95a9c115584789915223f860091
+      internalID: -173181199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurveillantAttack_5
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 0
+        width: 145
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5827397b1ebb5b41b4cea9089b01fc6
+      internalID: 1383134122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurveillantAttack_6
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 0
+        width: 145
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8854d0e806720418302ac74b6cdb9d
+      internalID: -1129008690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurveillantAttack_7
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 0
+        width: 145
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57e6a1e592b974c48ac2dbc8e893862a
+      internalID: -707666146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurveillantAttack_8
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 0
+        width: 145
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b735f09f54e2840be50f5ae7cd4fc9
+      internalID: -1227246008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurveillantAttack_9
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 0
+        width: 145
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b18b7c8d9c4a5fb44a848f7366146b4e
+      internalID: 310095380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 768ba737f2f0d30479758c56b7ffdc6d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SurveillantAttack_0: -544846381
+      SurveillantAttack_1: -2086808803
+      SurveillantAttack_2: 1774148685
+      SurveillantAttack_3: -123629021
+      SurveillantAttack_4: -173181199
+      SurveillantAttack_5: 1383134122
+      SurveillantAttack_6: -1129008690
+      SurveillantAttack_7: -707666146
+      SurveillantAttack_8: -1227246008
+      SurveillantAttack_9: 310095380
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

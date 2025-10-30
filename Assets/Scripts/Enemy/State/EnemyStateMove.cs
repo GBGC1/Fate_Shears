@@ -1,3 +1,4 @@
+using Map;
 using UnityEngine;
 
 namespace Script.Enemy
@@ -19,7 +20,7 @@ namespace Script.Enemy
 
         public override void Start()
         {
-            SetRandomTarget();
+            target = controller.GetComponentInParent<SpawnEnemy>().RandomPos();
             controller.Function.StartMove();
         }
 
@@ -34,22 +35,17 @@ namespace Script.Enemy
             controller.Function.EndMove();
         }
 
-        private void SetRandomTarget()
-        {
-            target = controller.transform.position + (Vector3.left) * 2;
-        }
-
         private void MoveRandomPos()
         {
             if (Vector2.Distance(controller.transform.position, target) < 1)
             {
+                controller.CanChangeState();
                 controller.ChangeState(new EnemyStateIdle(controller));
+                return;
             }
-            else
-            {
-                controller.Rigidbody.linearVelocity =
-                    (target - controller.transform.position).normalized * speed;
-            }
+
+            controller.Rigidbody.linearVelocity =
+                (target - controller.transform.position).normalized * speed;
         }
     }
 }
