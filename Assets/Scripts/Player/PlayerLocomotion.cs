@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using TMPro;
 
 /// <summary>
 /// Player의 실제 이동, 점프, 대시 로직을 처리하는 클래스
@@ -38,6 +39,11 @@ public class PlayerLocomotion : MonoBehaviour
     public bool IsJumping => isJumping;
     public bool IsDashing => isDashing;
     public bool Grounded => IsGrounded();
+    public int MaxJumpCount
+    {
+        get { return maxJumpCount; }
+        set { maxJumpCount = value; }
+    }
 
     private void Awake()
     {

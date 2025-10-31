@@ -272,7 +272,6 @@ MonoBehaviour:
   maxJumpCount: 2
   dashSpeed: 10
   dashDuration: 0.2
-  shadowObject: {fileID: 4653774548087151021}
 --- !u!114 &2395407492373929372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +361,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStat: {fileID: 2395407492373929372}
   fatigue: {fileID: 7704894825232611223}
-  hazardDamage: 2
+  playerStatus: {fileID: 2517229581724690517}
+  hazardDamage: 5
+  isImmuneToHazardTerrain: 0
 --- !u!1 &4653774548087151021
 GameObject:
   m_ObjectHideFlags: 0

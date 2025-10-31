@@ -55,6 +55,8 @@ public class StatManager : MonoBehaviour
     // 최종 스탯 캐시 딕셔너리
     private Dictionary<StatType, float> finalStats = new();
 
+    private bool isDead = false;
+
     #region Stat Event Actions
     // 스탯 변경 이벤트 선언 (형태 : <sender, currentValue, maxValue>)
     public event Action<StatManager, float, float> OnHPChanged;
@@ -77,6 +79,7 @@ public class StatManager : MonoBehaviour
     public float CurrentHP => currentHP;
     public float CurrentStamina => currentStamina;
     public float StaminaMultiplier { get; set; } = 1f;
+    public bool IsDead => isDead;
     #endregion
 
     private void Awake()
@@ -199,6 +202,9 @@ public class StatManager : MonoBehaviour
     // 데미지 처리 (HP 감소)
     public void TakeDamage(float amount)
     {
+        // 이미 사망한 경우 무시
+        if (isDead) return;
+
         // 방어력 적용 데미지 계산
         float defense = DefensePower;
         float finalDamage = amount * (100f / (100f + defense));
@@ -216,6 +222,7 @@ public class StatManager : MonoBehaviour
         // 현재 HP가 0 이하가 된 경우 사망 이벤트 발생
         else
         {
+            isDead = true;
             OnDeath?.Invoke();
         }
     }
