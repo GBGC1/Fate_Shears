@@ -244,6 +244,27 @@ public class StatManager : MonoBehaviour
         currentStamina = Mathf.Min(currentStamina + amount, MaxStamina);
         OnStaminaChanged?.Invoke(this, currentStamina, MaxStamina);
     }
+
+    /// <summary>
+    /// 방어력을 무시하고 HP를 즉시 감소시킵니다. (그림자 모드 변신 비용 등)
+    /// 이 함수는 '피격'으로 간주되지 않으므로 OnHurt 이벤트를 호출하지 않습니다.
+    /// </summary>
+    public void ApplyDirectHPLoss(float amount)
+    {
+        // 순수 데미지만큼 HP 감소
+        currentHP = Mathf.Max(currentHP - amount, 0);
+        
+        // [중요] UI 컨트롤러에 신호를 보냅니다.
+        OnHPChanged?.Invoke(this, currentHP, MaxHP);
+
+        // HP가 0이 되면 사망 이벤트는 동일하게 호출
+        if (currentHP <= 0)
+        {
+            // OnDeath 이벤트는 이미 구독되어 있으므로
+            // PlayerDamageStateManager가 사망 처리를 할 것입니다.
+            OnDeath?.Invoke();
+        }
+    }
     #endregion
 
 }
