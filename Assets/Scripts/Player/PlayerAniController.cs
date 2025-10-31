@@ -18,6 +18,7 @@ public class PlayerAniController : MonoBehaviour
     private const string ANIM_TRIGGER_HURT = "Hurt"; 
     private const string ANIM_TRIGGER_DEATH = "Death";
     private const string ANIM_BOOL_IS_MOVING = "IsMoving";
+    private const string ANIM_TRIGGER_ATTACK = "Attack";
     #endregion
 
     private void Awake()
@@ -37,6 +38,7 @@ public class PlayerAniController : MonoBehaviour
         // 이벤트 구독
         playerInput.OnJumpEvent += SetJumpAni;
         playerInput.OnDashEvent += SetDashAni;
+        playerInput.OnAttackEvent += SetAttackAni;
         damageStateManager.OnPlayerHurt += SetHurtAni; 
         statManager.OnDeath += SetDeathAni;
     }
@@ -89,18 +91,31 @@ public class PlayerAniController : MonoBehaviour
         animator.SetTrigger(ANIM_TRIGGER_DASH);
     }
 
+    // 공격 상태 애니메이션 처리 (SetTrigger)
+    private void SetAttackAni()
+    {
+        animator.SetTrigger(ANIM_TRIGGER_ATTACK);
+    }
+
     // 피격 상태 애니메이션 처리 (SetTrigger)
     private void SetHurtAni()
     {
         animator.SetTrigger(ANIM_TRIGGER_HURT);
     }
-    
+
     // 사망 상태 애니메이션 처리 (SetTrigger)
     private void SetDeathAni()
     {
         animator.SetTrigger(ANIM_TRIGGER_DEATH);
-        
-        // 사망 후 다른 애니메이션이 실행되지 않도록 스크립트 비활성화
-        enabled = false; 
+
+        enabled = false;
+    }
+    
+    public void DisableAnimator()
+    {
+        // 사망 후 다른 애니메이션이 실행되지 않도록 Animator 비활성화
+        animator.enabled = false;
+
+        enabled = false;
     }
 }

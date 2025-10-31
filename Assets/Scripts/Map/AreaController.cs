@@ -40,7 +40,7 @@ namespace Map
             {
                 inPlayerArea = area;
                 StartSpawnEnemies();
-                Debug.Log(inPlayerArea);
+                //Debug.Log(inPlayerArea);
             }
         }
 

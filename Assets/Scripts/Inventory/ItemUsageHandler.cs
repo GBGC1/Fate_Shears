@@ -11,6 +11,7 @@ public class ItemUsageHandler : MonoBehaviour
     [Header("References")]
     [SerializeField] private StatManager playerStat;
     [SerializeField] private StatusEffectManager status;
+    [SerializeField] private PlayerLocomotion locomotion;
 
     [Header("Settings")]
     [SerializeField] private int healAmount = 20;
@@ -54,6 +55,9 @@ public class ItemUsageHandler : MonoBehaviour
             case ItemType.Cure_Burn:
                 UseCureBurnItem(itemData);
                 break;
+            case ItemType.Artifact:
+                UseArtifact(itemData);
+                break;
         }
     }
 
@@ -91,6 +95,13 @@ public class ItemUsageHandler : MonoBehaviour
     {
         status.HealBurn();
         Debug.Log($"{itemData.itemName} used. Cured Burn.");
+    }
+
+    // 유물 사용 처리 (차후 수정 필요)
+    private void UseArtifact(ItemDataSO itemData)
+    {
+        locomotion.MaxJumpCount += 1;
+        Debug.Log($"{itemData.itemName} used. Get 3rd Jump.");
     }
     #endregion
 }

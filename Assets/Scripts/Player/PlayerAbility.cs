@@ -98,5 +98,13 @@ public class PlayerAbility : MonoBehaviour
             Debug.Log("그림자 조각이 부족합니다.");
         }
     }
+
+    // 외부에서 그림자 조각 추가
+    public void AddShadowFragments(int amount)
+    {
+        shadowFragments += amount;
+        OnShadowFragmentsChanged?.Invoke(shadowFragments);
+        Debug.Log($"그림자 조각 {amount}개 추가! 현재 그림자 조각: {shadowFragments}");
+    }
 }
 
