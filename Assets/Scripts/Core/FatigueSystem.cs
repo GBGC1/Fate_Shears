@@ -34,7 +34,26 @@ public class FatigueSystem : MonoBehaviour
     private bool isExhaustedTriggered = false;
     private bool isExhaustedFinished = false;
 
+    #region Fatigue Event
+    /// <summary>
+    /// 피로도 변경 시 호출되는 이벤트 (UI 연동용)
+    /// </summary>
+    /// <param name="FatigueSystem">발신자</param>
+    /// <param name="float">현재 피로도</param>
+    /// <param name="float">최대 피로도 (100f)</param>
+    public event Action<FatigueSystem, float, float> OnFatigueChanged;
+    #endregion
+
     #region Properties
+    /// <summary>
+    /// 현재 피로도 (읽기 전용)
+    /// </summary>
+    public float CurrentFatigue => currentFatigue;
+    
+    /// <summary>
+    /// 최대 피로도 (읽기 전용)
+    /// </summary>
+    public float MaxFatigue => 100f;
     public bool IsExhaustedTriggered
     {
         get => isExhaustedTriggered;
@@ -76,8 +95,16 @@ public class FatigueSystem : MonoBehaviour
     // 이동/대시 시 피로도 증가
     public void AddFatigue(float amount)
     {
+        //[추가됨]
+        float oldFatigue = currentFatigue;
         // 피로도 범위 0~100으로 제한
         currentFatigue = Mathf.Clamp(currentFatigue + amount, 0f, 100f);
+
+        // [수정됨] 피로도 값이 실제로 변경된 경우에만 이벤트를 호출합니다.
+        if (oldFatigue != currentFatigue)
+        {
+            OnFatigueChanged?.Invoke(this, currentFatigue, MaxFatigue);
+        }
     }
 
     // 휴식 장소에서 피로도 회복
